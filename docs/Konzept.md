@@ -306,6 +306,12 @@ flowchart LR
 - Vor der Umsetzung eines Plugins wird dieses entsprechend detailliert.
 - Vor dem Start der Iteration werden alle Stories genau definiert.
 
+## Iteration: Projektstruktur anlegen
+- [ ] Gradle Projekt aufsetzen
+- [ ] Sourcefiles aus EmpireX kopieren
+- [ ] Sourcefiles aus ABattle kopieren
+- [ ] Architektur: Komponenten festlegen
+
 ## Iteration: Karten- und Datenbasis
 
 Ziel: Eine Karte anzeigen, Tiles intern repräsentieren.

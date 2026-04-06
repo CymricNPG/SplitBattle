@@ -6,8 +6,8 @@ This project was generated with a template that includes Kotlin application laun
 
 ## Platforms
 
-- `core`: Main module with the application logic shared by all platforms.
-- `lwjgl3`: Primary desktop platform using LWJGL3; was called 'desktop' in older docs.
+- `graphics`: Main module with the application logic shared by all platforms.
+- `desktop`: Primary desktop platform using LWJGL3; was called 'desktop' in older docs.
 - `android`: Android mobile platform. Needs Android SDK.
 - `server`: A separate application without access to the `core` module.
 - `shared`: A common module shared by `core` and `server` platforms.
@@ -24,13 +24,12 @@ Useful Gradle tasks and flags:
 - `--refresh-dependencies`: this flag forces validation of all dependencies. Useful for snapshot versions.
 - `android:lint`: performs Android project validation.
 - `build`: builds sources and archives of every project.
-- `cleanEclipse`: removes Eclipse project data.
 - `cleanIdea`: removes IntelliJ project data.
 - `clean`: removes `build` folders, which store compiled classes and built archives.
 - `eclipse`: generates Eclipse project data.
 - `idea`: generates IntelliJ project data.
-- `lwjgl3:jar`: builds application's runnable jar, which can be found at `lwjgl3/build/libs`.
-- `lwjgl3:run`: starts the application.
+- `desktop:jar`: builds application's runnable jar, which can be found at `lwjgl3/build/libs`.
+- `desktop:run`: starts the application.
 - `server:run`: runs the server application.
 - `test`: runs unit tests (if any).
 
