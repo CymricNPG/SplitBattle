@@ -17,7 +17,6 @@ Alles, was zur grafischen Darstellung mit LibGDX notwendig ist.
 ### Diagramm
 
 ```mermaid
-%%{init: {'theme': 'neutral' } }%%
 C4Container
     System(server, "Server")
     System(shared, "Shared")
@@ -39,9 +38,7 @@ C4Container
     Rel(entity, terrain, "Uses")
 ```
 
-
 ## Komponenten
-
 
 ```mermaid
 classDiagram
@@ -49,21 +46,17 @@ classDiagram
     GameMechanicPlugin <|-- MovementPlugin
     GameMechanicPlugin <|-- EconomyPlugin
     GameMechanicPlugin <|-- MovementPlugin
-
     CombatPlugin --> UnitPlugin
     MovementPlugin --> UnitPlugin
     EconomyPlugin --> UnitPlugin
     CombatPlugin --> MapPlugin
     MovementPlugin --> MapPlugin
-    
     VisualizationPlugin --> GameMechanicPlugin
-    
     GamePlugin --> VisualizationPlugin
     GamePlugin --> GameMechanicPlugin
     GamePlugin --> MapPlugin
 
 ```
-
 
 ## UI Ablauf
 
@@ -91,7 +84,7 @@ flowchart LR
 
 ```
 
-- Jeder Screen hat den selben Aufbau
+- Jeder Screen hat denselben Aufbau
 - Jeder Screen hat eine eindeutige ID
 - Der TitleScreen erlaubt die Erweiterung um neue Screens, die über Plugins reinkommen.
 
@@ -100,14 +93,14 @@ Das Design der Screens ist:
 ```mermaid
 classDiagram
     ScreenSwitcher <|-- ScreenManager
-    libgdx_Screen  <|-- Screen
+    libgdx_Screen <|-- Screen
     Screen <|-- someScreen
     someScreen --> ScreenSwitcher
     class ScreenSwitcher {
         registerScreen(Screen)
         switchTo(nextScreen: ScreenId, parameters: Optional~~ScreenParameter~)
     }
-    
+
     class ScreenManager {
         libgdx.Game
     }
@@ -115,21 +108,41 @@ classDiagram
 
 ### Game Ablauf
 
+#### Game Loop
+
 ```mermaid
 flowchart LR
     Start((Start)) --> WaitForGameInit
-    WaitForGameInit --> GameLoop{Decide Side}
+    WaitForGameInit --> GameLoop
+    WaitForGameInit -. Player A .-> MoveUnits
+    WaitForGameInit -. Player B .-> AttackUnits
+
     subgraph GameLoop
-        MoveUnits -- Next Turn/TurnCheck--> AttackUnits
-        AttackUnits --Next Round/TurnCheck--> MoveUnits
+        MoveUnits -- Next Turn/TurnCheck --> AttackUnits
+        AttackUnits -- Next Round/TurnCheck --> MoveUnits
     end
-    subgraph TurnCheck
-        ResolveConflicts --> ReplayConflicts
-        ReplayConflicts --> CheckVictory
-        CheckVictory --> Production
-        Production --> ShowProduction        
-    end
+
     GameLoop --> End((End))
+
+
+```
+
+#### Turn Loop
+
+```mermaid
+flowchart LR
+    subgraph TurnCheck
+        ResolveConflicts --> ResolvProduction
+        ResolvProduction --> ResolveVictory
+        ResolveVictory --> ShowTurnResult
+        subgraph ShowTurnResult
+            ReplayConflicts --> CheckVictory{Player has won?}
+            CheckVictory -- Yes --> ShowVictory
+            CheckVictory -- No --> ReplayProduction
+            ShowVictory --> End((End))
+        end
+    end
+
 
 ```
 
