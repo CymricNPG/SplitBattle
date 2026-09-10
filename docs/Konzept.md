@@ -38,7 +38,7 @@ Aus dem initialen Entwurf werden als Zielbild übernommen:
 - Gelände wie Meer, Küste, Ebene, Wald und Berge; Abstrakte Höhenstufen; die Zuordnung zum ursprünglichen Wertebereich −100 bis 100 ist noch offen. Gebäude sind Spielobjekte und nicht bloß Geländearten.
 - Land-, See- und Lufteinheiten, etwa Infanterie, Panzer, Artillerie, Schiffe, Transporter, Bomber und Jäger.
 - Bewegung abhängig von Gelände und Eigenschaften; Durchqueren eigener Einheiten erlaubt, regulär eine Einheit pro Feld. Gebäude und Transporter können über ihre Eigenschaften mehrere Einheiten aufnehmen.
-- Fog of War mit aktueller Sicht und zuletzt bekannten Informationen. Regeln zur Veraltung dieser Informationen sind noch zu klären.
+- Die ganze Karte mit Gelände und Strukturen ist bekannt. Nicht sichtbare Felder sind ausgegraut und zeigen keine Einheiten oder zuletzt bekannten Einheitenpositionen. Bewegungen bleiben auf sichtbaren Feldern und decken während der Ausführung nichts auf; Sicht wird erst zum nächsten Turn aus den neuen Positionen berechnet.
 - Zufallsbasierter Kampf mit reproduzierbaren Ergebnissen. Gelände, Erfahrung, Moral und angrenzende Einheiten sind bisher vorgeschlagene Einflussgrößen, keine fertige Kampfformel.
 
 Detailfragen werden vor der betreffenden Umsetzung entschieden, siehe [Entscheidungen](Entscheidungen.md).

@@ -25,6 +25,13 @@ Begriffe: [Glossar](Glossar.md). Grundlage sind der ursprüngliche Entwurf und d
 | E-17 | Indirektes Feuer verwendet gemeinsame aktuelle Aufklärung und halbiert die Deckungswirkung. | 40 % Schutz werden 20 %; nicht Halbierung des gesamten Schadens. |
 | E-18 | Abstrakte Höhenstufen und Zufall bis ±10 %. | Konkrete Höhenstufen und Zufallsverfahren noch offen. |
 | E-19 | Einheiten repräsentieren Verbände; Verluste senken Angriffskraft. | Proportionale Formel, Deckungszahlen und Gegenwehrfaktor 0,5 bleiben ungetestete Vorschläge. |
+| E-20 | Gesamte Karte und Strukturen bekannt; unsichtbare Felder ausgegraut, dort keine Einheiten oder zuletzt bekannten Einheitenpositionen. | Ersetzt Einheiten-Positionshistorie im Fog of War; Strukturkenntnis legt keine Detailauskunft über Insassen fest. |
+| E-21 | Wege nur durch sichtbare Felder; Sichtfläche während des Turns fest, Neuberechnung erst zum nächsten Turn. | Bewegung und Ladeaktionen erweitern den Bewegungsraum anderer Befehle nicht während derselben Auswertung. |
+| E-22 | Blockierte Wege enden am letzten zulässigen freien Haltefeld, keine automatische Umgehung. | Eigene Einheiten durchquerbar, aber keine regulären Haltefelder; ohne vorheriges Haltefeld bleibt die Einheit am Ausgangsort. |
+| E-23 | Transporter teilen ein Budget für Fahren und Laden; jede Ein- und Ausladung kostet sie 1 Bewegungspunkt. Kapazität unabhängig von Bewegungsrate. | Beliebige Abfolge in Eingabereihenfolge; Übergabe über benachbarte Felder, Ausladeziel sichtbar, frei und passierbar. |
+| E-24 | Laden beendet die eigene Bewegung des Passagiers; Einladen, Fahren und Ausladen im selben Turn bleiben als Transporterbefehle möglich. | Nach dem Ausladen stehen bleiben; Mitfahren erneuert kein Budget. |
+| E-25 | Insassen ohne Außenaktionen und eigenen Sichtbeitrag; Zerstörung des Transporters zerstört tatsächlich aufgenommene Insassen. | Geplante Aufnahme allein macht eine Einheit noch nicht zum Insassen; feste Sichtfläche bleibt bis zum nächsten Turn bestehen. |
+| E-26 | Erster Transporter erlaubt Aufnahmeprofil Infanterie, ein Platz je Verband; keine Aufnahme anderer Transporter. | Zulässigkeit unabhängig vom Einheitennamen; Gebäudeaufnahme separat. |
 
 ## Ersetzte oder eingeordnete Aussagen
 
@@ -39,6 +46,9 @@ Begriffe: [Glossar](Glossar.md). Grundlage sind der ursprüngliche Entwurf und d
 | Editor nur Desktop, JavaFX | Desktop bestätigt, Integration erforderlich; UI-Technik noch prüfen (E-12, O-10). |
 | Spielstand ist Szenario | Verwandte, aber getrennte fachliche Begriffe (E-13). |
 | Ausschließlich Movement als minimale Gameloop | Nur möglicher Entwicklungsschritt, keine endgültige Spielregel. |
+| Zuletzt bekannte Einheiten ausgegraut darstellen | Außerhalb der Sicht keine Einheitenpositionen darstellen; Gelände und Strukturen bleiben bekannt (E-20). |
+| Bewegung kann neue Bewegungsfelder aufdecken | Sichtfläche bleibt im Turn fest; Neuberechnung zum nächsten Turn (E-21). |
+| Aufnahme beendet sämtliche Transportmöglichkeiten des Passagiers | Eigene Bewegung endet, weitere Beförderung und Ausladung im selben Turn bleiben möglich (E-24). |
 
 ## Offene Fragen
 
@@ -52,7 +62,7 @@ Offen bedeutet nicht verworfen. Antworten werden vor Umsetzung des betreffenden 
 | O-04 | Wann wird erobert, welche Zielbedingungen gelten und was geschieht mit Warteschlangen, Ressourcen, laufenden Reparaturen und verschachtelten Transportinhalten? | Eroberung |
 | O-05 | Teilweise geklärt durch E-14, E-15, E-17 bis E-19: Reihenfolge, unmittelbare Verluste, Gegenwehrzeitpunkt und Zufallsbandbreite stehen fest. Offen: endgültige Formel, Rundung, Grundwerte, Zielbindung, Gegenwehr-Zielprüfung und Zuweisung, Zufallsverfahren. | Kampf |
 | O-06 | Wie werden optionale Siegziele verknüpft und geprüft? Umgang mit Gleichstand, gleichzeitig erfüllten Zielen, fehlenden Hauptquartieren und eingelagerten Einheiten bei Vernichtung? | Siegbedingungen |
-| O-07 | Bewegungsreihenfolge und Waldrandsicht sind geklärt (E-14, E-16). Offen: Blockaden, sonstige ungültig gewordene Befehle, Transport, Sichtgeometrie, Aktualisierung und Veraltung bekannter Positionen; Listenposition nach Befehlsänderung nicht entschieden. | Bewegung und Fog of War |
+| O-07 | E-14, E-16 und E-20 bis E-26 klären Reihenfolge, Blockadestopp, Sichtwechsel und grundlegenden Transport. Offen: Sichtgeometrie, allgemeine Anzahl gewöhnlicher Bewegungsbefehle, Listenposition nach Befehlsänderung und sonstige ungültige Befehle; Transportfehler siehe O-16. | Bewegung und Fog of War |
 | O-08 | Eigenschaftsabhängigkeiten, Konflikte, Mehrfachvorkommen, gemeinsame Parameter und Konfigurationsgrenzen? Welche Regeln sind Kerninvarianten? | Eigenschaftsmodell |
 | O-09 | Plugin-Vertrag, Editoranbindung, Versionen, Szenarioformat, Spielstandformat, Migrationen und Plattformkompatibilität? | Plugins und Speichern/Laden |
 | O-10 | Wie wird der Desktop-Editor technisch integriert? JavaFX bleibt ein Kandidat, keine bestätigte Vorgabe. | Editoroberfläche |
@@ -61,6 +71,7 @@ Offen bedeutet nicht verworfen. Antworten werden vor Umsetzung des betreffenden 
 | O-13 | Netzwerkprotokoll, Wiederverbindung, Zeitlimits, Hosting-Stufen, Nakama-Ziel und Elo? | Netzwerkspiel |
 | O-14 | Priorität und Umfang von Forschung, Unterhalt, Tutorial, Audio und Monetarisierung? | Jeweilige Erweiterung |
 | O-15 | Konkrete Höhenstufen und Zuordnung zum bisherigen Wertebereich, Höhenwirkung, Straßen- und Brückenkosten, Deckungskombinationen und endgültige Deckungswerte? | Geländewechselwirkungen |
+| O-16 | Konkrete Transportkapazität, Kosten fehlgeschlagener Ladebefehle und Behandlung abhängiger Folgebefehle; Aufnahme- und Austrittskosten sowie Profile stationärer Gebäude und deren Aufnahme von Transportern? | Transport und Gebäudeaufnahme |
 
 ## Einordnung gegenüber Battle Isle 1
 

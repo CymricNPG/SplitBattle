@@ -34,7 +34,7 @@ Abnahme: Ein neu angelegtes Szenario einschließlich angepasster Einheitendefini
 - [ ] Eroberung samt eingelagerten Einheiten und Stützpunktbau umsetzen (CAP-01, BUILD-01).
 - [ ] Produktionspunkte, Warteschlangen und verzögertes Ausrücken umsetzen (ECO-01 bis ECO-03).
 - [ ] Standardsiege und konfigurierbare Ziele umsetzen (WIN-01, WIN-02).
-- [ ] Bewegungs-, Aufnahme-, Sicht- und Deckungsregeln umsetzen (WORLD-01, WORLD-02, TERRAIN-01, TERRAIN-02); verbleibende Details O-07 und O-15 klären.
+- [ ] Bewegungs-, Aufnahme-, Sicht- und Deckungsregeln umsetzen (WORLD-01, WORLD-02, MOVE-01, MOVE-02, TRANS-01 bis TRANS-05, TERRAIN-01, TERRAIN-02); feste Sichtfläche, Fahr-/Ladebudget und Passagierzustand prüfen, verbleibende Details O-07, O-15 und O-16 klären.
 - [ ] O-01 bis O-07 für diesen Umfang entscheiden und reproduzierbare Auswertung prüfen (DET-01).
 
 Abnahme: Die Beispiele in [Spielregeln](Spielregeln.md) und zugehörigen Akzeptanzkriterien funktionieren. Vereinfachte Entwicklungsabläufe mit nur Bewegung gelten nicht als fertige Spielregeln.

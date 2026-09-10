@@ -11,6 +11,7 @@ Dieser Katalog konkretisiert die [allgemeinen Spielregeln](../Spielregeln.md). B
 | [Gelände](Gelaende.md) | Grundgelände, Bewegungskosten und kombinierbare Ergänzungen |
 | [Gebäude](Gebaeude.md) | Hauptquartier, Fabrik und Stützpunkt |
 | [Wechselwirkungen](Wechselwirkungen.md) | Verbindlicher Ablauf, Gegenwehr, Sicht und Deckung mit Prüfszenarien |
+| [Bewegung und Transport](Bewegung_und_Transport.md) | Sichtgebundene Wege, Ladebudget, Passagiere und Zerstörung |
 
 ## Status der Angaben
 
@@ -33,3 +34,8 @@ Die Ablage bestätigt nicht automatisch die vorgeschlagenen Zahlen. Alle Angaben
 Die [Wechselwirkungen](Wechselwirkungen.md) legen parallele Planung, Angriffs- und Bewegungsreihenfolge, sofortige Verluste und Gegenwehr fest. Bestätigt sind außerdem Waldrandsicht, erhaltene Walddeckung auf Straßen, halbierte Deckungswirkung gegen indirektes Feuer, abstrakte Höhenstufen und Zufall bis ±10 %.
 
 Deckungszahlen, proportionale Schadensformel und Gegenwehrfaktor 0,5 bleiben ungetestete Vorschläge. Gegenwehr-Zielprüfung und Zuweisung zu Starteinheiten, genaue Höhen- und Sichtregeln sowie Straßen- und Brückenkosten bleiben offen.
+
+
+## Bewegung und Transport
+
+[Bewegung und Transport](Bewegung_und_Transport.md) legt bekannte Karte, unsichtbare Einheiten ohne Positionshistorie, Sichtwechsel zum nächsten Turn und das gemeinsame Fahr- und Ladebudget fest. Ein- oder Ausladen beendet die eigene Bewegung des Passagiers; Transportketten bleiben möglich. Aufnahmeprofil, Inaktivität der Insassen, Zerstörungsfolge und Ausschluss verschachtelter Transporter sind bestätigt. Kapazitätswerte und Fehlerkosten bleiben offen.

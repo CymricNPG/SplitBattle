@@ -25,11 +25,11 @@ Alle sechs Definitionen verwenden Besitzerzuordnung, Position, Verbandsstärke, 
 
 | Einheit | Weitere Eigenschaften und Parameter |
 |---|---|
-| Infanterie | Angriff; Eroberung mit zulässigen Gebäuden als Zielen |
+| Infanterie | Angriff; Eroberung mit zulässigen Gebäuden als Zielen; Aufnahmeprofil Infanterie und Transportbedarf 1 Platz |
 | Kampfpanzer | Angriff; Wirksamkeit je Zielprofil noch festzulegen |
 | Artillerie | Angriff mit Mindestreichweite 2 und Maximalreichweite 5; indirektes Feuer |
 | Spähfahrzeug | Leichter Angriff als Rollenentwurf; konkrete Wirksamkeit noch offen |
-| Transporter | Aufnahme und Transport; Kapazität und zulässige Insassen offen |
+| Transporter | Aufnahmeprofil Infanterie zulässig; je Verband 1 Platz; Ein-/Ausladen kostet jeweils 1 eigenen Bewegungspunkt; konkrete Kapazität offen |
 | Baueinheit | Bau mit Stützpunkt als errichtbarer Definition |
 
 **Bestätigt für Artillerie:** Ein Ziel darf durch andere eigene Einheiten aktuell aufgeklärt sein. Eine eigene freie Sichtlinie ist dann nicht erforderlich. Die genauen Sicht- und Zielprüfungen folgen im nächsten Schritt.
@@ -39,3 +39,8 @@ Alle sechs Definitionen verwenden Besitzerzuordnung, Position, Verbandsstärke, 
 Die Zuweisung von Gegenwehr zu den sechs Definitionen ist **offen**. Sie darf nicht aus der Angriffsfähigkeit abgeleitet werden. Ohne ausdrückliche Zuweisung bleibt sie deaktiviert. Begrenzung und vorgeschlagener Schadensfaktor stehen in [Eigenschaften](Eigenschaften.md).
 
 Noch festzulegen sind maximale Verbandsstärke, Schadenswerte je Zielprofil, Stärkeeinfluss, Produktionskosten und Bauzeiten, Transportkapazität, Reparaturparameter und Bauparameter. Diese Angaben werden nicht durch erfundene Standardwerte ersetzt.
+
+
+## Transport und Sicht
+
+Die [Bewegungs- und Transportregeln](Bewegung_und_Transport.md) sind bestätigt. Fahrt und Ladeaktionen können verknüpft werden. Passagiere führen nach Ein- oder Ausladen keine eigene Bewegung mehr aus, können aber im selben Turn mitfahren und wieder ausgeladen werden. Im Transporter haben sie keine Außenaktionen; seine Zerstörung zerstört die Insassen. Transporter dürfen nicht in andere Transporter geladen werden. Alle Wege bleiben innerhalb der festen Sichtfläche dieses Turns; neue Sicht entsteht erst zum nächsten Turn. Die Tabellenwerte für Bewegung und Sicht bleiben ungetestete Vorschläge.

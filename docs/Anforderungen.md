@@ -29,6 +29,22 @@ Alle Anforderungen sind geplant, nicht als implementiert nachgewiesen. P1 ist f�
 | WIN-01 | P1 | Hauptquartiereroberung oder vollständige Vernichtung des Gegners führt im Standard zum Sieg. | Zwei getrennte Szenarien belegen je einen Siegweg. Verlust einer gewöhnlichen Fabrik allein löst keinen Sieg aus. Prüfzeitpunkt und Sonderfälle erfordern O-06. |
 | WIN-02 | P1 | Gebiets- und Missionsziele sind konfigurierbar. | Ein Szenario speichert und lädt ein ausgewähltes Ziel mit seinen Parametern; erfüllte und nicht erfüllte Ziele werden entsprechend ausgewertet. Verfügbare Zielarten und Verknüpfung werden mit O-06 konkretisiert. |
 
+## Bewegung und Transport
+
+Grundlage: [Bewegung und Transport](Spielregeln/Bewegung_und_Transport.md). Beispiele setzen zulässige sichtbare Wege, passende Nachbarschaft und freie Kapazität voraus.
+
+| ID | Prio | Anforderung | Akzeptanzkriterium |
+|---|---|---|---|
+| MOVE-01 | P1 | Jeder Weg bleibt vollständig innerhalb der festen Sichtfläche dieses Turns. | Ein Weg über ein unsichtbares Feld zu einem sichtbaren Ziel wird nicht zugelassen. Ein vorfahrender Späher erweitert die zulässigen Wege im selben Turn nicht. |
+| MOVE-02 | P1 | Bei Blockaden endet Bewegung am letzten zulässigen freien Haltefeld; keine Umgehung. | Ein davor von einer eigenen Einheit belegtes Feld wird durchquert, aber nicht als Halt verwendet. Ohne freies Haltefeld auf dem Weg bleibt die Einheit am Ausgangsort. |
+| TRANS-01 | P1 | Aufnahmeprofile und Transportbedarf bestimmen die Zulässigkeit, unabhängig vom Einheitennamen. | Eine Definition mit Aufnahmeprofil Infanterie belegt beim ersten Transporter einen Platz. Eine gleichnamige Definition ohne dieses Profil wird nicht aufgenommen. Ein Transporter darf nicht in einen anderen geladen werden. |
+| TRANS-02 | P1 | Ein- und Ausladen kosten jeweils den Transporter 1 Bewegungspunkt aus seinem gemeinsamen Fahrbudget; Kapazität ist ein eigener Parameter. | 2 Punkte fahren, einladen, 2 Punkte fahren, ausladen verbrauchen 6 Punkte. Ein- und Ausladen erfolgen benachbart; Ausladeziel sichtbar, frei und für den Passagier passierbar. |
+| TRANS-03 | P1 | Laden beendet eigene Bewegung des Passagiers, nicht weitere Beförderung oder Ausladung durch den Transporter. | Ein Verband kann sich auf eigene Kosten nähern, eingeladen, mitgenommen und im selben Turn ausgeladen werden. Danach führt er keinen eigenen Bewegungsbefehl mehr aus. |
+| TRANS-04 | P1 | Insassen greifen nicht an, leisten keine Gegenwehr, erobern nicht und liefern keine eigene Sicht. | Ein noch aufgenommener Passagier erweitert bei der Neuberechnung keine Sicht; ein ausgeladener erst zum nächsten Turn. Die feste Sichtfläche wird durch Laden im laufenden Turn nicht verändert. |
+| TRANS-05 | P1 | Zerstörung des Transporters zerstört dessen tatsächliche Insassen. | Transporter und Insassen werden vor ihren geplanten Bewegungen entfernt. Eine nur zur späteren Aufnahme vorgesehene benachbarte Einheit wird dadurch nicht zerstört. |
+
+Kosten fehlgeschlagener Ladeaktionen, abhängige Folgebefehle, konkrete Kapazität und Gebäudeaufnahme bleiben O-16. Daraus wird keine zusätzliche Regel zur Anzahl gewöhnlicher Bewegungsbefehle abgeleitet.
+
 ## Eigenschaften und Plugins
 
 | ID | Prio | Anforderung | Akzeptanzkriterium |
@@ -55,7 +71,7 @@ Neue Verhaltensarten werden als Plugins programmiert. Eine Skriptsprache ist nic
 |---|---|---|---|
 | UI-01 | P1 | Desktopbedienung bietet Maus, Tastatur, Auswahl, Zoom, Scrollen und zulässige Befehle. | Eine Partie ist mit Maus und Tastatur bedienbar; nach Auswahl sind zum Zugteil und zu den Fähigkeiten passende Befehle und Objektinformationen erkennbar. Konkrete Belegung vor M4 festlegen. |
 | WORLD-01 | P1 | Die Welt verwendet Hexfelder; Bewegung und Aufnahme hängen von Eigenschaften ab. | Eigene Einheiten können gemäß Bewegungsregeln durchquert werden, reguläre Endpositionen werden nicht mehrfach belegt; definierte Gebäude- und Transportaufnahme ist möglich. Detailklärung O-07. |
-| WORLD-02 | P1 | Fog of War verwendet spielerbezogene Sicht und zuletzt bekannte Informationen. | Ein außerhalb der aktuellen Sicht bewegter Gegner erscheint nicht mit seiner neuen Position. Veraltung und Wiederentdeckung werden vor Umsetzung anhand O-07 ergänzt. |
+| WORLD-02 | P1 | Ganze Karte und Strukturen bekannt; unsichtbare Felder ausgegraut und ohne Einheiten oder zuletzt bekannte Einheitenpositionen. Sichtfläche im Turn fest. | Ein Späher erzeugt während seiner Bewegung keine neuen sichtbaren Felder. Erst zur nächsten Planung wird Sicht aus den neuen Positionen berechnet; außerhalb davon werden keine Einheiten angezeigt. Sichtgeometrie bleibt O-07. |
 | SAVE-01 | P1 | Nach jedem ausgewerteten Turn wird automatisch gesichert; letzter gültiger Spielstand bleibt bei Fehlern erhalten. | Nach erfolgreichem Speichern wird derselbe fachliche Zustand wieder geladen. Ein unterbrochener Folgespeichervorgang beschädigt den vorherigen gültigen Stand nicht. Format gemäß O-09. |
 | SAVE-02 | P1 | Szenario und Spielstand sind getrennte fachliche Objekte. | Laden eines Szenarios beginnt mit dessen Startaufstellung; Laden eines Spielstands setzt den gesicherten Partiezustand fort. |
 | DET-01 | P1 | Die Auswertung ist reproduzierbar. | Gleiche Ausgangslage, Regel- und Plugin-Versionen, Seeds und bestätigte Befehle führen bei wiederholter Auswertung zum gleichen fachlichen Ergebnis. Zufallsmodell gemäß O-05, O-09. |

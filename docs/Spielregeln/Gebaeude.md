@@ -34,3 +34,8 @@ Die Aufgaben sind bestätigt; ihre genaue Zerlegung in technische Eigenschaftsty
 | Darstellung und Gelände | Belegung von Hexfeldern und Wechselwirkung mit dem Untergrund |
 
 Es werden derzeit keine unbestätigten Zahlen oder zusätzlichen Gebäudefähigkeiten festgelegt. Weitere Details folgen mit den Wechselwirkungen und den offenen Fragen O-01 bis O-04 in [Entscheidungen](../Entscheidungen.md).
+
+
+## Abgrenzung zum Transport
+
+Die [Transportregeln](Bewegung_und_Transport.md) verwenden Aufnahme auch als gemeinsamen Baustein für Gebäude. Die Kosten von 1 Bewegungspunkt je Ladeaktion gelten für Transporter und werden nicht automatisch auf stationäre Gebäude übertragen. Aufnahme- und Austrittskosten sowie die Unterbringung von Transportern in Gebäuden bleiben separat zu klären (O-16).

@@ -35,6 +35,14 @@ Nach Turn 2 ist eine Runde abgeschlossen. Die Wahl des Spielers mit der ersten B
 
 A plant, Panzer P von Feld X nach Y zu bewegen. B plant einen zulässigen Angriff auf P. Beide bestätigen ihre Planung. Wird P bei der Kampfauswertung zerstört, bleibt sein Bewegungsbefehl unausgeführt. Überlebt P, wird seine geplante Bewegung anschließend nach den Bewegungsregeln geprüft und ausgeführt, sofern sie weiterhin zulässig ist. Kampfformel und Behandlung sonstiger ungültig gewordener Befehle sind offen (O-05, O-07).
 
+## Bewegung, Sicht und Transport
+
+Maßgeblich ist [Bewegung und Transport](Spielregeln/Bewegung_und_Transport.md). Die gesamte Karte mit Gelände und Strukturen ist bekannt; außerhalb der aktuellen Sicht ist sie ausgegraut und zeigt keine Einheiten, auch keine zuletzt bekannten Positionen. Jeder Bewegungsweg bleibt innerhalb der Sichtfläche dieses Turns. Neue Positionen erzeugen erst zum nächsten Turn neue Sicht.
+
+Eigene Einheiten sind durchquerbar, normale Haltefelder müssen frei und passierbar sein. Bei einer Blockade hält die Einheit am letzten zulässigen freien Feld vor dem Hindernis, ohne automatische Umgehung.
+
+Transporter können Fahrten und Ladeaktionen in Eingabereihenfolge verketten. Ein- und Ausladen auf benachbarten Feldern kostet jeweils den Transporter 1 Bewegungspunkt. Ein- oder Ausladen beendet die eigene Bewegung des Passagiers, verhindert aber nicht dessen anschließende Beförderung und Ausladung im selben Turn. Nach dem Ausladen bleibt er stehen. Insassen sind nach außen inaktiv; bei Zerstörung ihres Transporters werden sie ebenfalls zerstört.
+
 ## Eigenschaften statt Typabfragen
 
 Objektdefinitionen kombinieren Eigenschaften und Parameter. Die Laufzeit prüft die daraus entstehenden Fähigkeiten. Im Standard besitzt Infanterie die Eroberungsfähigkeit. Der Name oder die Darstellung der Einheit entscheidet nicht darüber.
@@ -73,7 +81,7 @@ Der Verlust aller gewöhnlichen Städte oder Fabriken ist keine zusätzliche aut
 
 - Regulär eine Einheit pro Hexfeld; Aufnahme in Gebäude und Transporter über deren Eigenschaften.
 - Bewegung durch eigene Einheiten erlaubt; Kosten und Erreichbarkeit hängen von Einheit und Gelände ab.
-- Sichtweiten bestimmen die aktuelle Sicht. Bereits beobachtete Informationen können als zuletzt bekannt dargestellt werden.
+- Die Sichtfläche wird für jeden Turn neu berechnet und bleibt während seiner Ausführung fest. Die gesamte Karte ist bekannt; unsichtbare Einheiten werden ohne Positionshistorie ausgeblendet.
 - Kampf nutzt Zufall, soll aber bei gleicher Ausgangslage, gleichen Regeln, Seeds und Befehlen reproduzierbar sein.
 
-Gegenwehr ist eine ausdrückliche Fähigkeit, standardmäßig deaktiviert und höchstens einmal pro Turn beim ersten Angriff möglich. Nur ein überlebender Verteidiger antwortet sofort mit seiner verbleibenden Stärke und geringerem Schaden. Die Reihenfolge mehrerer Angriffe ist die Eingabereihenfolge. Gegenwehr-Zielprüfung, endgültige Schadensformel, blockierte Wege, Transportabläufe und Aktualisierung zuletzt bekannter Positionen bleiben offen (O-05, O-07). Diese Themen sind nicht allein durch den Verweis auf Battle Isle spezifiziert.
+Gegenwehr ist eine ausdrückliche Fähigkeit, standardmäßig deaktiviert und höchstens einmal pro Turn beim ersten Angriff möglich. Nur ein überlebender Verteidiger antwortet sofort mit seiner verbleibenden Stärke und geringerem Schaden. Die Reihenfolge mehrerer Angriffe ist die Eingabereihenfolge. Gegenwehr-Zielprüfung, endgültige Schadensformel, Sichtgeometrie und Details fehlgeschlagener Transportbefehle bleiben offen (O-05, O-07, O-16). Bewegung und Transport sowie die Sichtaktualisierung sind im verlinkten Regelkapitel konkretisiert. Diese Themen sind nicht allein durch den Verweis auf Battle Isle spezifiziert.

@@ -94,6 +94,12 @@ Die Spielerbezeichnungen im Diagramm stehen für die jeweiligen Rollen und werde
 
 Zwei Fenster repräsentieren zwei Spielersichten auf dieselbe Partie. Planungsänderungen sind bis zum eigenen Abschluss möglich; sie verändern noch nicht den maßgeblichen Weltzustand. Technische Trennung der Sichten verhindert kein Mitlesen am gemeinsamen Monitor.
 
+## Bewegungsplanung und Transportzustand
+
+Die [Bewegungs- und Transportregeln](Spielregeln/Bewegung_und_Transport.md) verlangen eine für den Turn feste Sichtfläche. Die vollständige Karte ist bekannt; Einheiten außerhalb dieser Fläche werden ohne Positionshistorie ausgeblendet. Jeder geplante Weg wird gegen diese Fläche geprüft. Erst vor der nächsten Planung wird Sicht aus den neuen Positionen berechnet; bei der Neuberechnung liefern Insassen keine eigene Sicht.
+
+Die Planung berücksichtigt die erwarteten Positionen, Belegungen, freien Aufnahmeplätze und verbleibenden Budgets nach vorherigen eigenen Befehlen, ohne die verbindliche Welt vorzeitig zu ändern. Transporter verwenden ein gemeinsames Budget für Fahrt und Ladeaktionen. Aufnahmeprofil und Transportbedarf sind von Bewegungs- und Zielprofil getrennt. Ein- oder Ausladen sperrt weitere eigene Bewegung des Passagiers, nicht weitere Ladeaktionen des Transporters. Aufenthaltsort, belegte Plätze, Restbudget und Bewegungssperre sind Laufzeitzustand. Konkrete APIs und die Behandlung fehlgeschlagener abhängiger Befehle bleiben offen.
+
 ## Oberflächen und Persistenz
 
 ```mermaid

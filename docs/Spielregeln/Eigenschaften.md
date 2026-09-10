@@ -17,12 +17,14 @@ Die folgende Aufteilung ist ein **fachlicher Vorschlag**, kein festgelegtes API-
 | Verbandsstärke | Maximale Stärke; genaue Skalierung der Angriffskraft offen | Aktuelle Stärke einer Einheit; Verluste verringern die Angriffskraft |
 | Bewegung | Bewegungsprofil und Punktebudget | Bewegung einer Einheit; Profil unabhängig von Bewaffnung und Zielprofil |
 | Zielprofil | Ungeschützt, leicht gepanzert oder schwer gepanzert als vorgeschlagenes Startset | Grundlage für die Wirksamkeit von Waffen; keine Kampfformel vorgegeben |
-| Sicht | Sichtweite | Trägt zur spielerbezogenen Aufklärung unter Berücksichtigung von Sichtlinien bei |
+| Sicht | Sichtweite | Berechnung zum nächsten Turn aus neuen Positionen; Sichtfläche während des Turns fest, aufgenommene Insassen tragen bei der Neuberechnung nicht bei |
 | Angriff | Mindest- und Maximalreichweite, Wirksamkeit je Zielprofil | Regulärer Angriff; konkrete Schadenswerte noch offen |
 | Indirektes Feuer | Nutzung gemeinsamer aktueller Aufklärung | Erlaubt Angriff ohne eigene freie Sichtlinie; benötigt Angriffsfähigkeit |
 | Gegenwehr | Reaktionslimit und Schadensfaktor | Verbleibende Reaktionen; nur ausdrücklich ausgestattete Einheiten reagieren |
-| Aufnahme | Kapazität und zulässige Insassen | Enthaltene Einheiten; gemeinsam für Gebäude und Transporter nutzbar |
-| Transport | Regeln zum Befördern aufgenommener Einheiten noch offen | Verbindet Aufnahme mit Bewegung des aufnehmenden Objekts |
+| Aufnahme | Kapazität und erlaubte Aufnahmeprofile | Enthaltene Einheiten; gemeinsam für Gebäude und Transporter nutzbar |
+| Aufnahmeprofil | Beispielsweise Infanterie | Bestimmt Aufnahmefähigkeit unabhängig von Name, Bewegungs- und Zielprofil |
+| Transportbedarf | Ein Platz je Verband im ersten Infanterietransporter | Belegt Aufnahmeplätze unabhängig von aktueller Verbandsstärke |
+| Transport | Im ersten Regelsatz 1 Bewegungspunkt je Ein- oder Ausladen aus dem Budget des Transporters | Fahrt und Laden verkettbar; Insassen ohne Außenaktionen, bei Zerstörung mitzerstört; keine verschachtelten Transporter |
 | Eroberung | Zulässige Eroberungsziele | Ermöglicht regelgerechten Besitzerwechsel |
 | Bau | Errichtbare Objektdefinitionen; Kosten und Dauer offen | Bauvorgang, soweit nach späterer Regeldefinition erforderlich |
 | Reparatur | Zulässige Ziele, Umfang, Kosten und Dauer offen | Wiederherstellung beschädigter Einheiten |
@@ -65,3 +67,8 @@ Die Kombination mehrerer Beiträge zu Kosten, Deckung oder Sicht bleibt teilweis
 - Eine Fabrik und ein Transporter verwenden Aufnahme mit unterschiedlichen Parametern.
 - Artillerie kombiniert Angriff mit größerer Mindest- und Maximalreichweite sowie indirektem Feuer; eine monolithische Eigenschaft „Artillerie“ ist nicht nötig.
 - Wald mit Höhe ergibt einen bewaldeten Hügel. Eine zusätzliche Straße wird separat ergänzt.
+
+
+## Bewegung und Aufnahme im ersten Regelsatz
+
+Die [Transportregeln](Bewegung_und_Transport.md) konkretisieren die Bausteine. Kapazität und Bewegungsrate sind unabhängig. Laden beendet die eigene Bewegung des Passagiers, nicht die Beförderung durch den Transporter. Die eigene Bewegungssperre des Passagiers und sein Aufenthaltsort sind Instanzzustand. Aufnahmeprofile und Kapazität sind Definitionsparameter. Gebäude verwenden denselben Aufnahmebaustein; ihre Lade- und Austrittskosten sind separat offen.
