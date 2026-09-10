@@ -1,95 +1,62 @@
-
 # Planung
 
-- Vor der Umsetzung eines Plugins wird dieses entsprechend detailliert.
-- Vor dem Start der Iteration werden alle Stories genau definiert.
+Grundlagen: [Anforderungen](Anforderungen.md), [Entscheidungen](Entscheidungen.md), [Glossar](Glossar.md). Die folgenden Aufgaben sind geplant, sofern nicht ausdrücklich erledigt markiert. Vor jeder Iteration werden die betroffenen offenen Fragen entschieden und die Stories konkretisiert. P1-Anforderungen gehören zum ersten spielbaren Meilenstein.
 
-## Iteration: Projektstruktur anlegen
-- [x] Gradle Projekt aufsetzen
-- [ ] Sourcefiles aus EmpireX kopieren
-- [ ] Sourcefiles aus ABattle kopieren
-- [ ] Architektur: Komponenten festlegen
+## Vorhandene Grundlage
 
-## Iteration: Karten- und Datenbasis
+- [x] Gradle-Projekt aufsetzen (Status aus dem bisherigen Plan übernommen).
+- [ ] Übernahme geeigneter Quellen aus EmpireX und ABattle prüfen; keine ungeprüfte Kopierpflicht.
+- [ ] Architekturgrenzen und konkrete Plugin-Verträge aus dem Design ableiten.
 
-Ziel: Eine Karte anzeigen, Tiles intern repräsentieren.
+## M1: Definitionen, Eigenschaften und Szenariogrundlage
 
-Stories:
+- [ ] Definition, Instanz, Parameter, Regelsatz und Plugin abbilden (MOD-01 bis MOD-04).
+- [ ] Bewegung, Angriff, Sicht, Aufnahme, Eroberung, Bau, Reparatur und Produktion als benötigte Fähigkeiten detaillieren.
+- [ ] Plugin-Abhängigkeiten und Konfigurationsvalidierung festlegen (O-08, O-09).
+- [ ] Hexkarte und Szenario-Speicherung bereitstellen; Format vorab entscheiden.
 
-- [ ] Datenstrukturen für Karte erzeugen (Grid + Geländearten). Schnittstellen anlegen
-- [ ] Zufallsgenerator für einfache Karten.
-- [ ] Kartenanzeige (2D, einfache Tiles).
-- [ ] Auswahl von Tiles mit Maus.
-- [ ] Darstellung eines Infobereichs für das ausgewählte Tile
+Abnahme: Eine zusätzliche Einheitendefinition kombiniert vorhandene Eigenschaften ohne neue Typabfragen im Regelcode. Eine Plugin-Eigenschaft lässt sich erkennen und validieren.
 
-# Iteration: Minimale Gameloop
+## M2: Karte und integrierter Editor
 
-Das Spiel startet im Movement-Turn, wenn der Spieler einen Turn beendet, kommt sofort der nächste Movement-Turn.
+- [ ] Kartenanzeige, Zoom, Scrollen, Auswahl und Objektinformationen umsetzen.
+- [ ] Desktop-Editor aus dem Hauptmenü öffnen; Technikentscheidung O-10 vorher treffen.
+- [ ] Gelände und Definitionen bearbeiten, Objekte platzieren und Spielern zuordnen.
+- [ ] Verfügbare Siegbedingungen konfigurieren, Szenarien prüfen, speichern und laden.
+- [ ] Plugin-Eigenschaften im Editor bearbeiten (ED-01 bis ED-04).
 
-# Iteration: Einheiten & Bewegung
+Abnahme: Ein neu angelegtes Szenario einschließlich angepasster Einheitendefinition ist nach erneutem Laden fachlich gleichwertig. Probespielen wird in M4 vollständig abgenommen.
 
-Ziel: Einheiten platzieren und bewegen.
+## M3: Vollständige Regeln und Turnauswertung
 
-Stories:
+- [ ] Verdeckte Planung, Befehlsänderung, gemeinsamer Auswertungsbeginn und Rollenwechsel umsetzen (TURN-01 bis TURN-04).
+- [ ] Kampf vor Bewegung einschließlich zerstörter Einheiten umsetzen; O-05 zuvor klären.
+- [ ] Eroberung samt eingelagerten Einheiten und Stützpunktbau umsetzen (CAP-01, BUILD-01).
+- [ ] Produktionspunkte, Warteschlangen und verzögertes Ausrücken umsetzen (ECO-01 bis ECO-03).
+- [ ] Standardsiege und konfigurierbare Ziele umsetzen (WIN-01, WIN-02).
+- [ ] Bewegungs-, Aufnahme- und Sichtregeln umsetzen (WORLD-01, WORLD-02).
+- [ ] O-01 bis O-07 für diesen Umfang entscheiden und reproduzierbare Auswertung prüfen (DET-01).
 
-- [ ] Datenmodell für Einheiten (Typ, Position, Bewegungspunkte).
-- [ ] Einheiten auf Karte anzeigen.
-- [ ] Einheit auswählen
-- [ ] Zielkachel anklicken
-- [ ] Bewegung ausführen (ohne Kampf)
+Abnahme: Die Beispiele in [Spielregeln](Spielregeln.md) und zugehörigen Akzeptanzkriterien funktionieren. Vereinfachte Entwicklungsabläufe mit nur Bewegung gelten nicht als fertige Spielregeln.
 
-# Iteration: Städte & Produktion
+## M4: Erster spielbarer Meilenstein – lokales Duell und Editor
 
-Ziel: Städte, Produktion, einfache Ressourcen.
+- [ ] Zwei Desktopfenster für dieselbe Partie bereitstellen (PLAY-01).
+- [ ] Spielstart, Befehlsanzeige, Ergebnisdarstellung, Hilfe und Hauptmenü integrieren; Bedienung und Lokalisierbarkeit prüfen (UI-01, QUAL-01).
+- [ ] Editor-Probespiel und Rückkehr in den Editor vervollständigen.
+- [ ] Kleines Szenario mit wenigen Landeinheiten, Hauptquartieren, Fabriken und Baueinheiten für die Abnahme erstellen; Werte und Startrollen gemäß O-11 festlegen.
+- [ ] Automatisches Speichern, Fehlerfall und Laden von Szenario beziehungsweise Spielstand absichern (SAVE-01, SAVE-02).
 
-Stories:
+Abnahme: Zwei Menschen können ein im Editor erstelltes Szenario laden und bis zu einem regelgerechten Sieg spielen. Angepasste Eroberungsfähigkeit, Gebäudebau, Produktion und Übernahme eingelagerter Einheiten sind vorführbar. Alle P1-Kriterien sind geprüft. Zwei Fenster bieten keine physische Geheimhaltung am gemeinsamen Bildschirm.
 
-- Städte im Modell + Anzeige.
-- Jede Stadt erzeugt X Produktion pro Runde.
-- Produktionswarteschlange: Einheit auswählen, nach N Runden fertig.
-- Einheiten erscheinen in der Stadt bei Fertigstellung (Movement-Turn).
+## Weitere Meilensteine
 
-# Iteration: Spielelogik
-- Umsetzung der kompletten Game-Loop, aber kein Wechsel der Spieler
+| Stufe | Inhalt und Abnahmeziel |
+|---|---|
+| M5 Netzwerk | Zwei Rechner spielen über einen Host; Server validiert über Shared. Verbindung, Wiederverbindung und Zeitlimits vorher spezifizieren (NET-01, O-13). |
+| M6 Einzelspieler | Einfache KI mit denselben Befehlsregeln; vollständige Partie und Historie. Messverfahren für das Leistungsziel festlegen (AI-01, AI-02, HIST-01, O-12). |
+| M7 Android | Kompatible Szenarien mit Touchbedienung spielen; kein Editor erforderlich (AND-01). |
+| M8 Inhalte und Komfort | Zufallskarten, Karten bis 100 × 100 Felder, weitere Gelände- und Einheitentypen, Audio, Tutorial, UI-Verbesserungen und Balancing priorisieren (GEN-01, SCALE-01). |
+| Späterer Produktbetrieb | Online-Hosting, Elo, mögliche Nakama-Integration und Monetarisierung separat entscheiden. |
 
-# Iteration: Kampf & Siegbedingungen
-
-Ziel: Basis-Kampfsystem und Spielende, Zustand: ResolveConflicts
-
-Stories:
-
-- Kampfregeln: Wenn Einheit eine gegnerische Einheit angreift, wende Kampfalgorithmus an.
-- Eroberung von Städten: Einheit betritt gegnerische Stadt → Besitzerwechsel.
-- Siegbedingung: Wenn ein Spieler keine Städte mehr hat → Game Over.
-- Bewegung/Aktion wird nicht ausgeführt wenn Einheit zerstört wurde
-
-# Iteration: Zwei-Spieler
-
-Ziel: Es können zwei Spieler teilnehmen und die Gameloop ist komplett implementiert.
-
-# MVP
-Es existiert eine erste spielbare Version. Es werden für beide Spieler zwei Fenster geöffnet und man kann an einem Computer/Desktop
-eine komplettes Spiel durchspielen.
-
-# Iteration: UI (Spielstart etc)
-- siehe UI Ablauf
-
-# Save/Load
-
-# Iteration: Plugins umsetzen
-
-# Iteration: Server/Client
-
-# MVP
-Es ist möglich ein Multi-Player spiel zu starten und zu spielen. Dazu werden zwei Instanzen gestartet und über eine einfache Netzwerkkommunikation
-werden die Spieldaten ausgetauscht.
-
-# Audio
-
-# Iteration: KI (einfach)
-
-# Iteration: Android-Version UI verbessern
-
-# Iteration: UI-Verbesserungen, Optimierungen
-
-# Iteration: Mehr Einheitentypen, mehr Gelände, Balancing
+Forschung und Unterhalt bleiben unpriorisierte Ideen. Erweiterbarkeit wird bereits in M1 angelegt und nicht erst nach dem ersten spielbaren Meilenstein ergänzt.

@@ -1,207 +1,85 @@
-# Vision
+# Konzept
 
-Ein Einfach- oder Zweifachspieler-Strategiespiel im Stil von "Battle Isle".
+## Vision und Dokumentationsstand
 
-# Zielgruppe
+Ein von Battle Isle inspiriertes rundenbasiertes Strategiespiel für zwei Spieler. Taktisches Vorausdenken, Positionierung und das Zusammenspiel von Einheiten stehen im Mittelpunkt. Beide Spieler planen gleichzeitig unterschiedliche Zugteile.
 
-- Strategie-Nostalgiker
-- Strategiespieler
-- Kompetitive Spieler
+Zielgruppe sind Strategie-Nostalgiker, Strategiespieler und kompetitive Spieler. Zielplattformen sind Windows Desktop und Android. Vorgesehen sind menschliche Gegner und Einzelspieler gegen KI.
 
-## Plattformen
+Die Dokumentation beschreibt Anforderungen, keinen Implementierungsnachweis. Bestätigte Entscheidungen, frühere Ideen und offene Fragen werden unterschieden.
 
-Windows Desktop und Mobile (Android)
+| Dokument | Inhalt |
+|---|---|
+| [Spielregeln](Spielregeln.md) | Fachlicher Ablauf und Standardregeln mit Beispielen |
+| [Anforderungen](Anforderungen.md) | IDs, Prioritäten und Akzeptanzkriterien |
+| [Glossar](Glossar.md) | Verbindliche Bedeutung der Begriffe |
+| [Design](Design.md) | Architektur und technische Leitlinien |
+| [Planung](Planung.md) | Meilensteine und Abnahmekriterien |
+| [Entscheidungen](Entscheidungen.md) | Entscheidungen, ersetzte Aussagen und offene Fragen |
 
-# Technik
+## Spielkern und Standardkonfiguration
 
-- LibGDX
-- Kotlin
-- Koin
+Ein Turn umfasst die gleichzeitige verdeckte Planung beider Spieler und die anschließende Auswertung. Ein Spieler plant Bewegungen, der andere Aktionen. Eigene Befehle sind bis zum eigenen Turnabschluss änderbar. Nach Abschluss beider Spieler werden zuerst Kämpfe und danach Bewegungen überlebender Einheiten ausgewertet. Anschließend wechseln die Rollen. Zwei Turns bilden eine Runde.
 
-## Spielstil
+Der Standardregelsatz sieht Folgendes vor:
 
-- Simultan wie bei "Battle Isle"
-- Das Spiel deckt Militär, Wirtschaft, Forschung ab.
-- Fokus liegt auf Militär.
+- Fabriken erzeugen Produktionspunkte pro Runde. Produktionswarteschlangen fertigen Einheiten über mehrere Runden; Ausrücken ist in der nächsten eigenen Bewegungsphase nach Fertigstellung möglich.
+- Baueinheiten errichten Stützpunkte. Stützpunkte können reparieren und erobert werden.
+- Infanterie erobert Gebäude; eingelagerte Einheiten wechseln dabei den Besitzer.
+- Eroberung des gegnerischen Hauptquartiers oder Vernichtung aller gegnerischen Einheiten führt zum Sieg. Zusätzliche Gebiets- und Missionsziele sind konfigurierbar.
 
-# Anforderungen
+Fähigkeiten sind Eigenschaften von Objektdefinitionen. Die Bezeichnung „Infanterie“ ist keine fest codierte Voraussetzung für Eroberung. Ein anders konfigurierter Einheitentyp kann dieselbe Fähigkeit erhalten.
 
-Zwei Spiele-Modi:
-- 1vs1
-- Single Player mit Computergegner
+## Spielwelt
 
-## Spielfunktionen
+Aus dem initialen Entwurf werden als Zielbild übernommen:
 
-### Szenario
+- Hexagonkarten bis 100 × 100 Felder, vorgefertigt oder später aus einem Seed generiert.
+- Gelände wie Meer, Küste, Ebene, Wald und Berge; Höhenwerte von −100 bis 100. Gebäude sind Spielobjekte und nicht bloß Geländearten.
+- Land-, See- und Lufteinheiten, etwa Infanterie, Panzer, Artillerie, Schiffe, Transporter, Bomber und Jäger.
+- Bewegung abhängig von Gelände und Eigenschaften; Durchqueren eigener Einheiten erlaubt, regulär eine Einheit pro Feld. Gebäude und Transporter können über ihre Eigenschaften mehrere Einheiten aufnehmen.
+- Fog of War mit aktueller Sicht und zuletzt bekannten Informationen. Regeln zur Veraltung dieser Informationen sind noch zu klären.
+- Zufallsbasierter Kampf mit reproduzierbaren Ergebnissen. Gelände, Erfahrung, Moral und angrenzende Einheiten sind bisher vorgeschlagene Einflussgrößen, keine fertige Kampfformel.
 
-Besteht aus:
-- Karte (inkl. Einheiten)
-- Einheitentypen
-- Grafiken
-- aktivierten Plugins
-- Es gibt einen Editor für Szenarien (nur Desktop, JavaFX?)
+Detailfragen werden vor der betreffenden Umsetzung entschieden, siehe [Entscheidungen](Entscheidungen.md).
 
-### Karte & Welt
+## Modularität und Szenarien
 
-- Stil: Hexagon
-- Größe: bis zu 100x100 Felder
-- Inhalt:
-    - Geländearten: Meer, Küste, Ebene, Wald, Berge, Städte, …
-    - Sichtbarkeit: Fog of War je nach Reichweite pro Einheit/Städte/.... Aktive Bestimmung, man 
-      sieht nur was man aktuell auch sehen kann. Bereits entdeckte Felder oder auch Einheiten werden "ausgegraut"
-      dargestellt, man sieht immer die letzte Position, ausser die EInheit ist wieder woanders sichtbar.
-- Generierung: Zufallskarte mit Seed oder vorgefertigtes Szenario
-- Pro Hexagon nur eine Einheit, außer
-  - In Städten/basen: mehrere Einheiten möglich
-  - Transporteinheiten
-  
-### Einheiten & Städte
+Spielobjekte werden aus mehreren Eigenschaften mit Parametern zusammengesetzt. Bestehende Eigenschaften lassen sich ohne Programmierung kombinieren. Plugins ergänzen neue Eigenschaftstypen samt Verhalten sowie Inhalte und Darstellungen. Eine Skriptsprache ist nicht vorgesehen.
 
-- Einheitentypen:
-    - Land: Infanterie, Panzer, Artillerie …
-    - See: Zerstörer, Schlachtschiff, Transporter …
-    - Luft: Bomber, Jäger …
-- Attribute:
-    - Bewegungspunkte, Angriff, Verteidigung, Sichtweite, Transportkapazität, Anzahl, Erfahrung …
-- Städte/Basen:
-    - Produktion (Bau von Einheiten)
-    - Ressourcen-Einnahmen
-    - Eroberung & Verlust
-    - Reparatur von Einheiten
-- Alle Einheitentypen, Attribute, Grafiken etc bilden ein Einheiten-Plugin.
+Ein Szenario enthält Karte, Startaufstellung, Objektdefinitionen, Regelsatz, Ziele, Grafikreferenzen und benötigte Plugins. Ein Spielstand enthält dagegen den aktuellen Zustand einer Partie und deren Szenariogrundlage. Beide Begriffe sind nicht gleichbedeutend.
 
-### Bewegung
+## Integrierter Szenario-Editor
 
-- Realisiert als Plugin
-- Abhängig vom Einheiten-Plugin
-- Bewegungsregeln:
-    - Bewegung durch verbündete Einheiten erlaubt
-    - 
-### Wirtschaft / Ressourcen
+Der Editor ist Teil der Desktop-Anwendung und über das Hauptmenü erreichbar. Bereits der erste spielbare Meilenstein erlaubt:
 
-- Ressourcenarten:
-    - Einfach: „Produktion“/„Industriepunkte“
-- Verteilung:
-    - Städte generieren X Punkte pro Runde.
-- Ausgaben:
-    - Bau von Einheiten
-    - Unterhalt (optional)
-- Realisiert als Plugin
-- Abhängig vom Einheiten-Plugin
+- Karte und Gelände bearbeiten.
+- Objektdefinitionen aus vorhandenen Eigenschaften zusammenstellen und parametrisieren.
+- Objekte platzieren und Spielern zuordnen.
+- Spieler und verfügbare Siegbedingungen konfigurieren.
+- Szenarien prüfen, speichern, laden und probespielen.
+- Durch Plugins ergänzte Eigenschaften bearbeiten.
 
-### Kampf
+Android spielt kompatible Szenarien, benötigt aber keinen Editor. Die bisherige JavaFX-Vorgabe ist eine zu überprüfende Technikoption.
 
-- Kampfsystem:
-    - Würfel-basiert
-    - Modifikatoren (Gelände, Moral, Erfahrung, angrenzende Einheiten)
-- Realisiert als Plugin
-- Abhängig vom Einheiten-Plugin
-- Eroberung von Strukturen
+## Bedienung und Qualität
 
-### Regeln
-- Auswertung von Zügen am Ende eines Turns
-- Eine Round besteht aus zwei Turns: Movement, Attack
-- Ein Spieler startet immer in Movement der andere in Attack, nach dem Ende eines Turns wechselt dies.
-- Es gibt ein einfaches Undo: Der letzte Zug kann zurückgenommen werden.
-  - Ein Zug wird nur aktiv, wenn der Turn beendet wird oder wenn eine andere Aktion ausgeführt wurde.
+Desktop: Maus und Tastatur, Shortcuts, Zoom und Scrollen, Auswahl von Feldern und Objekten, Anzeige zulässiger Befehle, Infopanels und Ereignisprotokoll. Lesbare Icons und Farben, Hilfe und durchgängige Internationalisierung bleiben Ziele. Android benötigt angepasste Touchbedienung.
 
-### Siegbedingungen
+Das Spiel soll nach jedem ausgewerteten Turn automatisch speichern, ohne bei einem abgebrochenen Speichervorgang den letzten gültigen Spielstand zu verlieren. Gleiche Ausgangslage, Regeln, Seeds und Befehle sollen dieselben Ergebnisse liefern. Für Einzelspieler sind Historie und das Laden älterer Spielstände vorgesehen.
 
-- Eroberung X % aller Städte, Vernichtung aller gegnerischer Einheiten, Eroberung von Zielen, ...
-- Konfigurierbar beim Spielstart
+Das ursprüngliche Leistungsziel bleibt eine KI-Planung unter fünf Sekunden bei 100 Einheiten; Referenzhardware und Messverfahren sind offen.
 
-### KI (SinglePlayer)
-- KI-Schwierigkeitsgrade werden über Plugins umgesetzt
-- Einfache KI: Erobere fremde Basen
+## Ausbaustufen und erhaltene Ideen
 
-## UI/UX
+Der erste spielbare Meilenstein ist ein vollständiges lokales Duell in zwei Desktopfenstern mit integriertem Editor. Weitere Stufen umfassen Netzwerkspiel, KI, Android, Zufallskarten, weitere Inhalte und Balancing.
 
-- Kartenansicht (Zoom, Scroll)
-- Auswahl: Einheit/Tile/City
-- Je nach aktuellen Modus, sieht man wohin eine Einheit bewegt werden oder wen sie angreifen kann
-- Befehls-Eingabe:
-    - Maus-basiert und Tastatur-Shortcuts
-    - Infopanels (Einheitendetails, Stadtübersicht)
-    - Log / Ereignismeldungen
+Weitere Ideen aus dem initialen Entwurf bleiben erhalten, sind aber noch keine ausimplementierbaren Anforderungen:
 
-## Interaktion
-
-- Aktionen (wie Selektieren, Erobern einer Basis) können Events auslösen
-- Plugins können Hooks auf diese Events haben und dann entsprechende Aktionen auslösen (hauptsächlich Grafik und Texte)
-
-## Tutorial
-
-- Spezielles Szenario, dass Texte als einblendet was als nächstes machbar ist.
-- Es gibt explizite Hooks im System für alle Aktionen, ind er sich das Tutorial einhängt.
-
-## Audio
-
-- Es gibt eine sehr einfache Audio-Unterstützung (konfigurierbar):
-  - Für Selection von Einheiten, Bewegung und Kampf
-  - Je nach Einheit können unterschiedliche Töne abgespielt werden
-
-## Nicht-funktionale Anforderungen
-
-### Performance
-
-- Max. Kartengröße: 100x100 Felder
-- Ziel: KI-Zug < 5 Sekunden bei 100 Einheiten.
-
-### Stabilität
-
-- Robustes Speichersystem (Auto-Save).
-- Abstürze sollen Spielstand nicht zerstören.
-
-### Bedienbarkeit
-
-- Maus & Tastatur voll nutzbar.
-- Klare, lesbare Icons & Farben.
-- Bei Auswahl sieht man immer, was man als Nächstes machen kann.
-- Es gibt einen Hilfe-Bildschirm, der eine Anleitung zum Spiel besitzt.
-- Das Spiel setzt i18n konsequent um.
-- 
-### Modularität / Erweiterbarkeit
-
-- Alles über Plugins erweiterbar, die aber untereinander Abhängigkeiten haben können
-- Es gibt einige Basisdefinitionen, Schnittstellen, die für alle Plugins gelten.
-- Regeln, Einheiten, Werte möglichst in externen Dateien konfigurierbar
-
-Ziel: später neue Einheiten/Techs hinzufügen, ohne Kernlogik neu zu schreiben.
-
-### Multiplayer
-
-- Sync-Modell: Online mit Server
-- Lagerung von Spielständen serverseitig
-- ELO Berechnung für 1vs1 
-- Server steuert das gesamte Spiel:
-  - Validierung von Aktionen
-  - Timeouts für Spielzüge (konfigurierbar)
-
-Es gibt mehrere Ausbaustufen:
-- Alles in einer Applikation (nur Desktop -> Es werden zwei Fenster geöffnet)
-- Lokales Spiel (Ein Spieler ist Server, andere Spieler können über Broadcast direkt das Spiel betreten)
-- Einfaches Framework (Ein Spieler is Server), über Google
-- Nakama: https://heroiclabs.com/nakama/
-
-### Monetarization
-
-- MultiPlayer nur gegen Geld möglich (Monatsgebühr), sonst nur X Spiele pro Monat möglich
-
-
-### Persistenz & Spielstände
-
-- Spiel wird nach jedem Turn automatisch gesichert und sind mit einem Szenario gleichzusetzen
-- Komplette Historie bei Single-Player
-- Single-Player: Alte Spielstände ladbar
-- Die Abfolge von den selben Aktionen führt immer zum gleichen Ergebnis (Random Seed pro Szenario und pro Turn)
-
-# Architektur
-
-## ADR
-- Onion-Architecture um möglichst wenig technische Abhängigkeiten zu haben
-- Maximale Erweiterbarkeit, in der alle Komponenten ausgetauscht werden können
-- Endausbaustufe Multi-Player: Nakama 
-- Single/MultiPlayer werden intern gleich behandelt, für SinglePlayer wird MultiPlayer instantiiert, wobei 
-  der Gegenspieler durch einen Computer simuliert wird
-- Backend-Datenhaltung: Ist austauschbar und sichert in der Minimalstufe die Daten über JSON
-- Plugins haben eine eindeutige Identifikation und geben von welchen Plugins sie abhängig sind.
+- Serverautoritatives Online-Spiel, serverseitige Spielstände, konfigurierbare Zeitlimits und Elo-Wertung.
+- Lokaler Host mit Broadcast-Erkennung; ein bisher unpräzise beschriebenes Hosting „über Google“; Nakama als bisheriges langfristiges Ziel.
+- KI-Varianten über Plugins, zunächst mit dem Ziel, gegnerische Basen zu erobern.
+- Forschung und optionaler Unterhalt als mögliche Erweiterungen.
+- Tutorial-Szenarien über Ereignisse und Hooks; Plugins können Texte, Grafikreaktionen und zusätzliche Screens ergänzen.
+- Konfigurierbare einheitenspezifische Geräusche für Auswahl, Bewegung und Kampf.
+- Monetarisierungsidee: monatliches Kontingent kostenloser Mehrspielerpartien und kostenpflichtiger erweiterter Zugang. Umfang und Geschäftsmodell sind offen.
