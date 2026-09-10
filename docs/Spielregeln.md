@@ -2,6 +2,8 @@
 
 Begriffe: [Glossar](Glossar.md). Verbindliche Entscheidungen: [Entscheidungen](Entscheidungen.md). Prüfbare Anforderungen: [Anforderungen](Anforderungen.md).
 
+Der [Katalog der Spielobjekte und Eigenschaften](Spielregeln/README.md) enthält Einheiten, Gelände und Gebäude. [Wechselwirkungen](Spielregeln/Wechselwirkungen.md) konkretisiert den verbindlichen Ablauf sowie Sicht, Deckung und Gegenwehr; ungetestete Zahlen sind dort gekennzeichnet.
+
 ## Geltung
 
 Dieses Dokument beschreibt den bestätigten Spielkern und den Standardregelsatz. Objektfähigkeiten und Parameter sind konfigurierbar. Noch offene Detailregeln werden ausdrücklich benannt; Beispiele setzen keine nicht entschiedenen Regeln voraus.
@@ -11,9 +13,10 @@ Dieses Dokument beschreibt den bestätigten Spielkern und den Standardregelsatz.
 1. Zu Beginn eines Turns erhält ein Spieler die Bewegungsphase und der andere die Aktionsphase.
 2. Beide planen gleichzeitig. Gegenseitige Befehle bleiben verdeckt. Jeder sieht den für ihn sichtbaren Zustand zum Turnbeginn sowie seine eigene Planung.
 3. Alle eigenen Befehle können bis zum eigenen Turnabschluss geändert oder entfernt werden. Der Abschluss macht sie verbindlich; während des Wartens auf den Gegner werden sie nicht mehr bearbeitet.
-4. Erst wenn beide abgeschlossen haben, beginnt die Auswertung.
-5. Kämpfe werden vor Bewegungen aufgelöst. Zerstörte Einheiten führen ihre Bewegung nicht aus.
-6. Nach der Auswertung wechseln die Rollen. Zwei Turns bilden eine Runde, in der jeder Spieler einmal Bewegung und einmal Aktion erhält.
+4. Erst wenn beide abgeschlossen haben, beginnt die Auswertung. Nur die Planung erfolgt parallel; währenddessen wird kein Befehl ausgeführt.
+5. Alle Angriffe werden in Eingabereihenfolge ausgeführt. Nach jedem Angriff wirkt Schaden sofort; zerstörte Einheiten werden unmittelbar entfernt. Gegebenenfalls folgt sofort Gegenwehr, bevor der nächste Angriff beginnt.
+6. Erst nach sämtlichen Angriffen werden die Bewegungen in ihrer Eingabereihenfolge ausgeführt. Während der Gefechte bleiben alle Positionen unverändert; zerstörte Einheiten bewegen sich nicht mehr.
+7. Nach der Auswertung wechseln die Rollen. Zwei Turns bilden eine Runde, in der jeder Spieler einmal Bewegung und einmal Aktion erhält.
 
 „Aktionsphase“ umfasst Angriffe und weitere nach dem Regelsatz zulässige Aktionen. Welche Phasen Bau-, Reparatur- und Produktionsbefehle erlauben, ist noch offen (O-01). Auch die exakte Einordnung dieser Vorgänge und der Siegprüfung ist noch nicht festgelegt.
 
@@ -73,4 +76,4 @@ Der Verlust aller gewöhnlichen Städte oder Fabriken ist keine zusätzliche aut
 - Sichtweiten bestimmen die aktuelle Sicht. Bereits beobachtete Informationen können als zuletzt bekannt dargestellt werden.
 - Kampf nutzt Zufall, soll aber bei gleicher Ausgangslage, gleichen Regeln, Seeds und Befehlen reproduzierbar sein.
 
-Blockierte Wege, Transportabläufe, Gegenwehr, Mehrfachangriffe, Schadensformel und Aktualisierung zuletzt bekannter Positionen müssen noch entschieden werden (O-05, O-07). Diese Themen sind nicht allein durch den Verweis auf Battle Isle spezifiziert.
+Gegenwehr ist eine ausdrückliche Fähigkeit, standardmäßig deaktiviert und höchstens einmal pro Turn beim ersten Angriff möglich. Nur ein überlebender Verteidiger antwortet sofort mit seiner verbleibenden Stärke und geringerem Schaden. Die Reihenfolge mehrerer Angriffe ist die Eingabereihenfolge. Gegenwehr-Zielprüfung, endgültige Schadensformel, blockierte Wege, Transportabläufe und Aktualisierung zuletzt bekannter Positionen bleiben offen (O-05, O-07). Diese Themen sind nicht allein durch den Verweis auf Battle Isle spezifiziert.

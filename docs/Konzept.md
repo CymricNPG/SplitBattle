@@ -19,7 +19,7 @@ Die Dokumentation beschreibt Anforderungen, keinen Implementierungsnachweis. Bes
 
 ## Spielkern und Standardkonfiguration
 
-Ein Turn umfasst die gleichzeitige verdeckte Planung beider Spieler und die anschließende Auswertung. Ein Spieler plant Bewegungen, der andere Aktionen. Eigene Befehle sind bis zum eigenen Turnabschluss änderbar. Nach Abschluss beider Spieler werden zuerst Kämpfe und danach Bewegungen überlebender Einheiten ausgewertet. Anschließend wechseln die Rollen. Zwei Turns bilden eine Runde.
+Ein Turn umfasst die gleichzeitige verdeckte Planung beider Spieler und die anschließende Auswertung. Ein Spieler plant Bewegungen, der andere Aktionen. Eigene Befehle sind bis zum eigenen Turnabschluss änderbar. Nur die Planung erfolgt parallel. Nach Abschluss beider Spieler werden alle Angriffe in Eingabereihenfolge einschließlich jeweils sofortiger optionaler Gegenwehr ausgeführt. Schaden wirkt unmittelbar. Erst danach folgen Bewegungen überlebender Einheiten in ihrer Eingabereihenfolge; während aller Gefechte bleiben Positionen unverändert. Anschließend wechseln die Rollen. Zwei Turns bilden eine Runde.
 
 Der Standardregelsatz sieht Folgendes vor:
 
@@ -35,7 +35,7 @@ Fähigkeiten sind Eigenschaften von Objektdefinitionen. Die Bezeichnung „Infan
 Aus dem initialen Entwurf werden als Zielbild übernommen:
 
 - Hexagonkarten bis 100 × 100 Felder, vorgefertigt oder später aus einem Seed generiert.
-- Gelände wie Meer, Küste, Ebene, Wald und Berge; Höhenwerte von −100 bis 100. Gebäude sind Spielobjekte und nicht bloß Geländearten.
+- Gelände wie Meer, Küste, Ebene, Wald und Berge; Abstrakte Höhenstufen; die Zuordnung zum ursprünglichen Wertebereich −100 bis 100 ist noch offen. Gebäude sind Spielobjekte und nicht bloß Geländearten.
 - Land-, See- und Lufteinheiten, etwa Infanterie, Panzer, Artillerie, Schiffe, Transporter, Bomber und Jäger.
 - Bewegung abhängig von Gelände und Eigenschaften; Durchqueren eigener Einheiten erlaubt, regulär eine Einheit pro Feld. Gebäude und Transporter können über ihre Eigenschaften mehrere Einheiten aufnehmen.
 - Fog of War mit aktueller Sicht und zuletzt bekannten Informationen. Regeln zur Veraltung dieser Informationen sind noch zu klären.

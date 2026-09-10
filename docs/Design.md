@@ -69,21 +69,28 @@ Die bisherigen Kategorien Combat-, Movement-, Economy-, Map-, Unit- und Visualiz
 
 ```mermaid
 flowchart TD
-    Init[Szenario laden und prüfen] --> Plan[Gleichzeitig verdeckt planen: ein Spieler Bewegung, anderer Aktion]
-    Plan --> Ready{Beide abgeschlossen?}
-    Ready -- Nein --> Wait[Auf verbleibenden Spieler warten]
+    Init[Szenario laden und prüfen] --> P1[Spieler 1 plant Bewegungen]
+    Init --> P2[Spieler 2 plant Angriffe]
+    P1 --> Ready{Beide abgeschlossen?}
+    P2 --> Ready
+    Ready -- Nein --> Wait[Auf verbleibende Planung warten]
     Wait --> Ready
-    Ready -- Ja --> Combat[Kämpfe auswerten]
-    Combat --> Move[Überlebende Einheiten bewegen]
+    Ready -- Ja --> Attacks{Weitere Angriffe?}
+    Attacks -- Ja --> Attack[Nächster Angriff in Eingabereihenfolge]
+    Attack --> Damage[Schaden sofort anwenden; zerstörte Einheit entfernen]
+    Damage --> Counter[Gegebenenfalls sofort Gegenwehr; Schaden und Entfernung]
+    Counter --> Attacks
+    Attacks -- Nein --> Move[Bewegungen in Eingabereihenfolge; zerstörte Einheiten auslassen]
     Move --> Other[Weitere Auswertungsschritte noch zu präzisieren]
     Other --> Result[Turnergebnis und Speicherung]
     Result --> EndCheck{Spiel beendet?}
     EndCheck -- Ja --> End[Ergebnis anzeigen]
     EndCheck -- Nein --> Swap[Rollen wechseln; nach zwei Turns neue Runde]
-    Swap --> Plan
+    Swap --> P1
+    Swap --> P2
 ```
 
-Das Diagramm fixiert nur Kampf vor Bewegung. Die Einordnung von Eroberung, Bau, Produktion, Reparatur und Siegprüfung muss vor Implementierung präzisiert werden (O-01 bis O-06). Ergebnisdarstellungen dürfen keine unbeabsichtigten Informationen außerhalb der jeweiligen Spielersicht offenlegen.
+Die Spielerbezeichnungen im Diagramm stehen für die jeweiligen Rollen und werden nach jedem Turn getauscht. Nur die Planung erfolgt parallel. Alle Angriffe einschließlich unmittelbar folgender Gegenwehr werden nacheinander ausgeführt; erst danach folgen alle Bewegungen. Schäden und Zerstörungen wirken sofort. Maßgeblich sind die [Wechselwirkungen](Spielregeln/Wechselwirkungen.md). Die Einordnung von Eroberung, Bau, Produktion, Reparatur und Siegprüfung muss vor Implementierung präzisiert werden (O-01 bis O-06). Ergebnisdarstellungen dürfen keine unbeabsichtigten Informationen außerhalb der jeweiligen Spielersicht offenlegen.
 
 Zwei Fenster repräsentieren zwei Spielersichten auf dieselbe Partie. Planungsänderungen sind bis zum eigenen Abschluss möglich; sie verändern noch nicht den maßgeblichen Weltzustand. Technische Trennung der Sichten verhindert kein Mitlesen am gemeinsamen Monitor.
 

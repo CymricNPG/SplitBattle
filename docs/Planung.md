@@ -30,11 +30,11 @@ Abnahme: Ein neu angelegtes Szenario einschließlich angepasster Einheitendefini
 ## M3: Vollständige Regeln und Turnauswertung
 
 - [ ] Verdeckte Planung, Befehlsänderung, gemeinsamer Auswertungsbeginn und Rollenwechsel umsetzen (TURN-01 bis TURN-04).
-- [ ] Kampf vor Bewegung einschließlich zerstörter Einheiten umsetzen; O-05 zuvor klären.
+- [ ] Angriffe samt sofortiger Gegenwehr, Verlusten und Entfernung in Eingabereihenfolge umsetzen, erst danach Bewegungen in Eingabereihenfolge (TURN-05, COMBAT-01 bis COMBAT-03); verbleibende Details O-05 zuvor klären.
 - [ ] Eroberung samt eingelagerten Einheiten und Stützpunktbau umsetzen (CAP-01, BUILD-01).
 - [ ] Produktionspunkte, Warteschlangen und verzögertes Ausrücken umsetzen (ECO-01 bis ECO-03).
 - [ ] Standardsiege und konfigurierbare Ziele umsetzen (WIN-01, WIN-02).
-- [ ] Bewegungs-, Aufnahme- und Sichtregeln umsetzen (WORLD-01, WORLD-02).
+- [ ] Bewegungs-, Aufnahme-, Sicht- und Deckungsregeln umsetzen (WORLD-01, WORLD-02, TERRAIN-01, TERRAIN-02); verbleibende Details O-07 und O-15 klären.
 - [ ] O-01 bis O-07 für diesen Umfang entscheiden und reproduzierbare Auswertung prüfen (DET-01).
 
 Abnahme: Die Beispiele in [Spielregeln](Spielregeln.md) und zugehörigen Akzeptanzkriterien funktionieren. Vereinfachte Entwicklungsabläufe mit nur Bewegung gelten nicht als fertige Spielregeln.
