@@ -21,13 +21,24 @@ Alle Anforderungen sind geplant, nicht als implementiert nachgewiesen. P1 ist f�
 | COMBAT-03 | P1 | Zufällige Schwankungen der Angriffswirkung liegen innerhalb ±10 %. | Der Zufallsfaktor bleibt zwischen 0,9 und 1,1; identische Seeds und Eingaben reproduzieren Ergebnisse. Verteilung und endgültige Formel gemäß O-05. |
 | TERRAIN-01 | P1 | Waldrand ist sichtbar, dahinter blockiert Wald Sicht; Straßen erhalten Walddeckung. | Bei gleicher Höhe, ausreichender Sichtweite und ohne weitere Aufklärung ist die erste Waldeinheit sichtbar, die dahinter nicht. Wald mit Straße gewährt denselben Schutz wie ohne Straße. Sichtgeometrie gemäß O-07. |
 | TERRAIN-02 | P1 | Indirektes Feuer nutzt gemeinsame aktuelle Aufklärung und halbiert die Deckungswirkung. | Ein aufgeklärtes Ziel kann ohne eigene freie Sichtlinie angegriffen werden. Bei Testdeckung 40 % wirken gegen indirektes Feuer 20 %; die Testzahl selbst ist kein verbindlicher Balancewert. |
-| CAP-01 | P1 | Eroberungsfähigkeit bestimmt zulässige Eroberungen; eingelagerte Einheiten wechseln mit dem Gebäude den Besitzer. | Eine entsprechend konfigurierte Panzereinheit kann ein zulässiges Gebäude erobern; Infanterie ohne diese Fähigkeit nicht. Bei erfolgreicher Eroberung einer Fabrik mit zwei eingelagerten Einheiten gehören danach alle drei Objekte dem Eroberer. Detailklärung O-04. |
-| BUILD-01 | P1 | Einheiten mit passender Baufähigkeit können Stützpunkte errichten. | Unter den noch festzulegenden Bauvoraussetzungen errichtet eine Baueinheit einen definierten Stützpunkt; ohne Baufähigkeit steht der Befehl nicht zur Verfügung. Detailklärung O-01, O-03. |
-| ECO-01 | P1 | Fabriken erzeugen die konfigurierte Menge Produktionspunkte pro Runde. | Eine Fabrik mit Ertrag X erzeugt über eine vollständige Runde genau X, nicht X je Turn. Empfänger und Buchungszeitpunkt werden gemäß O-02 ergänzt. |
-| ECO-02 | P1 | Produktionsaufträge werden in einer Warteschlange mit konfigurierbarer, auch mehrründiger Bauzeit verwaltet. | Bei erfüllten Ressourcenbedingungen ist ein Auftrag mit Bauzeit N vor N festgelegten Fortschrittsschritten nicht fertig und nach N fertig. Kosten, Fortschritt und Warteschlangenregeln erfordern O-02. |
-| ECO-03 | P1 | Fertige Einheiten können in der nächsten eigenen Bewegungsphase nach Fertigstellung ausrücken. | Keine nachträgliche Bewegung im bereits geplanten Turn; Ausrücken wird erst für die folgende eigene Bewegungsplanung angeboten. |
-| WIN-01 | P1 | Hauptquartiereroberung oder vollständige Vernichtung des Gegners führt im Standard zum Sieg. | Zwei getrennte Szenarien belegen je einen Siegweg. Verlust einer gewöhnlichen Fabrik allein löst keinen Sieg aus. Prüfzeitpunkt und Sonderfälle erfordern O-06. |
+| CAP-01 | P1 | Eroberungsfähige Einheit beendet Bewegung auf Gebäude, bleibt außerhalb angreifbar und muss volle gegnerische Angriffsgelegenheit überleben. | Bei Zerstörung keine Übernahme. Bei Erfolg Gebäude und gesamtes Inventar übertragen, Eroberer aufgenommen, Fortschritt und Vorräte auf null. Auftragseinträge und Abschlusszeitpunkt O-01/O-04. |
+| BUILD-01 | P1 | Bauauftrag in Bewegungsphase verwendet Baupunkte; volle gegnerische Angriffsgelegenheit vor Abschluss. | Kein Abschluss vor dieser Gelegenheit. Pionier mit null Baupunkten bleibt im Spiel, kann nicht bauen und später aufgefüllt werden. Details O-01/O-03. |
+| ECO-01 | P1 | Baugeschwindigkeit einer Fabrik liefert Produktionsfortschritt pro Runde am aktiven Auftrag, keinen separaten Vorrat. | Geschwindigkeit X liefert X Fortschritt pro Fortschrittsschritt, nicht je Turn; nur ein Auftrag wird bearbeitet. Gutschriftzeitpunkt gemäß O-02. |
+| ECO-02 | P1 | Produktionskosten und Baugeschwindigkeit bestimmen Dauer; ein aktiver Auftrag, weitere in Warteschlange. | Neue Aufträge starten bei null. Abbruch vernichtet Fortschritt. Abschluss überträgt keinen Rest auf den nächsten Auftrag. Rundung und Auftragswechsel O-02. |
+| ECO-03 | P1 | Fertigstellung am Anfang eigener Bewegungsphase; Ausrücken erst in der darauffolgenden eigenen Bewegungsphase. | Fertigstellung in M erlaubt kein Ausrücken in M, erst in M+1. Inventarangriff während Wartezeit noch O-18. |
+| WIN-01 | P1 | Standardsieg durch Hauptquartiereroberung oder Vernichtung; Prüfung zwischen Turns vor Fertigstellungen. | Beide Siegwege separat prüfen. Spätere Fertigstellung verhindert keine festgestellte Niederlage. Verlust gewöhnlicher Fabrik allein kein Sieg; weitere Details O-06. |
 | WIN-02 | P1 | Gebiets- und Missionsziele sind konfigurierbar. | Ein Szenario speichert und lädt ein ausgewähltes Ziel mit seinen Parametern; erfüllte und nicht erfüllte Ziele werden entsprechend ausgewertet. Verfügbare Zielarten und Verknüpfung werden mit O-06 konkretisiert. |
+
+## Gebäude, Reparatur und Bauvorrat
+
+Grundlagen: [Gebäude](Spielregeln/Gebaeude.md) und [Bau und Produktion](Spielregeln/Bau_und_Produktion.md).
+
+| ID | Prio | Anforderung | Akzeptanzkriterium |
+|---|---|---|---|
+| BUILD-02 | P1 | Basen reparieren Einheiten und ergänzen Baupunkte geeigneter Pioniere. | Pionier mit null Baupunkten kann aufgefüllt werden; Bauvorrat und Verbandsstärke bleiben getrennte Werte. Konkrete Kosten, Umfang und Dauer O-17. |
+| INV-01 | P1 | Gebäudeaufnahme im Standard unbegrenzt; normale Bewegungskosten wie Straßen beim Betreten und Verlassen. | Kein Kapazitätslimit verhindert Aufnahme; Bewegungsprüfung verwendet dieselben Kosten wie Straße. Profile und Weiterbewegung O-16. |
+| INV-02 | P1 | Gebäudeinsassen können angreifen, sind nicht gezielt angreifbar und leisten keine Gegenwehr. | Bewaffneter Insasse kann unter erfüllten Zielbedingungen angreifen, aber weder als direktes Angriffsziel noch für Gegenwehr genutzt werden. Nicht auf Transportpassagiere übertragen; Details O-18. |
+| INV-03 | P1 | In Gebäuden verbleibende Transporter werden automatisch ins Gebäudeinventar entladen. | Passagiere wechseln vom Transporter ins Gebäudeinventar. Auslösezeitpunkt und zusätzliche Kosten müssen vor Testausführung gemäß O-16 festgelegt werden. |
 
 ## Bewegung und Transport
 
@@ -40,10 +51,10 @@ Grundlage: [Bewegung und Transport](Spielregeln/Bewegung_und_Transport.md). Beis
 | TRANS-01 | P1 | Aufnahmeprofile und Transportbedarf bestimmen die Zulässigkeit, unabhängig vom Einheitennamen. | Eine Definition mit Aufnahmeprofil Infanterie belegt beim ersten Transporter einen Platz. Eine gleichnamige Definition ohne dieses Profil wird nicht aufgenommen. Ein Transporter darf nicht in einen anderen geladen werden. |
 | TRANS-02 | P1 | Ein- und Ausladen kosten jeweils den Transporter 1 Bewegungspunkt aus seinem gemeinsamen Fahrbudget; Kapazität ist ein eigener Parameter. | 2 Punkte fahren, einladen, 2 Punkte fahren, ausladen verbrauchen 6 Punkte. Ein- und Ausladen erfolgen benachbart; Ausladeziel sichtbar, frei und für den Passagier passierbar. |
 | TRANS-03 | P1 | Laden beendet eigene Bewegung des Passagiers, nicht weitere Beförderung oder Ausladung durch den Transporter. | Ein Verband kann sich auf eigene Kosten nähern, eingeladen, mitgenommen und im selben Turn ausgeladen werden. Danach führt er keinen eigenen Bewegungsbefehl mehr aus. |
-| TRANS-04 | P1 | Insassen greifen nicht an, leisten keine Gegenwehr, erobern nicht und liefern keine eigene Sicht. | Ein noch aufgenommener Passagier erweitert bei der Neuberechnung keine Sicht; ein ausgeladener erst zum nächsten Turn. Die feste Sichtfläche wird durch Laden im laufenden Turn nicht verändert. |
+| TRANS-04 | P1 | Transportpassagiere greifen nicht an, leisten keine Gegenwehr, erobern nicht und liefern keine eigene Sicht. | Ein noch aufgenommener Passagier erweitert bei der Neuberechnung keine Sicht; ein ausgeladener erst zum nächsten Turn. Die feste Sichtfläche wird durch Laden im laufenden Turn nicht verändert. |
 | TRANS-05 | P1 | Zerstörung des Transporters zerstört dessen tatsächliche Insassen. | Transporter und Insassen werden vor ihren geplanten Bewegungen entfernt. Eine nur zur späteren Aufnahme vorgesehene benachbarte Einheit wird dadurch nicht zerstört. |
 
-Kosten fehlgeschlagener Ladeaktionen, abhängige Folgebefehle, konkrete Kapazität und Gebäudeaufnahme bleiben O-16. Daraus wird keine zusätzliche Regel zur Anzahl gewöhnlicher Bewegungsbefehle abgeleitet.
+Kosten fehlgeschlagener Ladeaktionen, abhängige Folgebefehle, konkrete Transporterkapazität und Details automatischer Gebäudeentladung bleiben O-16. Daraus wird keine zusätzliche Regel zur Anzahl gewöhnlicher Bewegungsbefehle abgeleitet.
 
 ## Eigenschaften und Plugins
 

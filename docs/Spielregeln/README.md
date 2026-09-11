@@ -12,6 +12,7 @@ Dieser Katalog konkretisiert die [allgemeinen Spielregeln](../Spielregeln.md). B
 | [Gebäude](Gebaeude.md) | Hauptquartier, Fabrik und Stützpunkt |
 | [Wechselwirkungen](Wechselwirkungen.md) | Verbindlicher Ablauf, Gegenwehr, Sicht und Deckung mit Prüfszenarien |
 | [Bewegung und Transport](Bewegung_und_Transport.md) | Sichtgebundene Wege, Ladebudget, Passagiere und Zerstörung |
+| [Bau und Produktion](Bau_und_Produktion.md) | Baupunkte, Überlebensfrist, Produktionsfortschritt und verzögertes Ausrücken |
 
 ## Status der Angaben
 
@@ -39,3 +40,8 @@ Deckungszahlen, proportionale Schadensformel und Gegenwehrfaktor 0,5 bleiben ung
 ## Bewegung und Transport
 
 [Bewegung und Transport](Bewegung_und_Transport.md) legt bekannte Karte, unsichtbare Einheiten ohne Positionshistorie, Sichtwechsel zum nächsten Turn und das gemeinsame Fahr- und Ladebudget fest. Ein- oder Ausladen beendet die eigene Bewegung des Passagiers; Transportketten bleiben möglich. Aufnahmeprofil, Inaktivität der Insassen, Zerstörungsfolge und Ausschluss verschachtelter Transporter sind bestätigt. Kapazitätswerte und Fehlerkosten bleiben offen.
+
+
+## Gebäude, Bau und Produktion
+
+Stand 2026-09-12: [Gebäude](Gebaeude.md) und [Bau und Produktion](Bau_und_Produktion.md) konkretisieren Eroberungsfrist, Inventarangriffe, unbegrenzte Gebäudeaufnahme, auffüllbare Baupunkte und serielle Produktion ohne Ressourcenvorrat. Siegprüfung erfolgt vor Fertigstellungen. Offene Detailzeitpunkte sind im Entscheidungsregister gekennzeichnet.

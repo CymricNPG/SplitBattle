@@ -23,9 +23,9 @@ Ein Turn umfasst die gleichzeitige verdeckte Planung beider Spieler und die ansc
 
 Der Standardregelsatz sieht Folgendes vor:
 
-- Fabriken erzeugen Produktionspunkte pro Runde. Produktionswarteschlangen fertigen Einheiten über mehrere Runden; Ausrücken ist in der nächsten eigenen Bewegungsphase nach Fertigstellung möglich.
-- Baueinheiten errichten Stützpunkte. Stützpunkte können reparieren und erobert werden.
-- Infanterie erobert Gebäude; eingelagerte Einheiten wechseln dabei den Besitzer.
+- Fabriken erzeugen Baufortschritt am jeweils einzigen aktiven Produktionsauftrag; weitere Aufträge warten. Es gibt keinen separaten Produktionsressourcenvorrat und keine Übertragung von Restleistung. Einheiten werden zu Beginn einer eigenen Bewegungsphase fertig und dürfen erst in der darauffolgenden eigenen Bewegungsphase ausrücken.
+- Baueinheiten errichten Stützpunkte und Infrastruktur mit Baupunkten. Bei null Baupunkten bleiben sie erhalten. Basen reparieren Einheiten und füllen Baupunkte auf. Vor Bauabschluss erhält der Gegner eine vollständige Angriffsgelegenheit.
+- Standardinfanterie beginnt Eroberung durch Beenden ihrer Bewegung auf dem Gebäude und bleibt bis zur Übernahme außerhalb des Inventars angreifbar. Nach vollständiger gegnerischer Angriffsgelegenheit und Überleben wechseln Gebäude und Inventar den Besitzer; Produktionsfortschritt und Vorräte gehen verloren.
 - Eroberung des gegnerischen Hauptquartiers oder Vernichtung aller gegnerischen Einheiten führt zum Sieg. Zusätzliche Gebiets- und Missionsziele sind konfigurierbar.
 
 Fähigkeiten sind Eigenschaften von Objektdefinitionen. Die Bezeichnung „Infanterie“ ist keine fest codierte Voraussetzung für Eroberung. Ein anders konfigurierter Einheitentyp kann dieselbe Fähigkeit erhalten.
@@ -83,3 +83,6 @@ Weitere Ideen aus dem initialen Entwurf bleiben erhalten, sind aber noch keine a
 - Tutorial-Szenarien über Ereignisse und Hooks; Plugins können Texte, Grafikreaktionen und zusätzliche Screens ergänzen.
 - Konfigurierbare einheitenspezifische Geräusche für Auswahl, Bewegung und Kampf.
 - Monetarisierungsidee: monatliches Kontingent kostenloser Mehrspielerpartien und kostenpflichtiger erweiterter Zugang. Umfang und Geschäftsmodell sind offen.
+
+
+Gebäude haben im Standard unbegrenzte Aufnahme und Bewegungskosten wie Straßen. Bewaffnete Gebäudeinsassen dürfen angreifen, sind nicht gezielt angreifbar und leisten keine Gegenwehr. Die Siegprüfung erfolgt zwischen den Turns vor Fertigstellungen. Detailregeln: [Gebäude](Spielregeln/Gebaeude.md) und [Bau und Produktion](Spielregeln/Bau_und_Produktion.md).

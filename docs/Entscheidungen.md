@@ -1,6 +1,6 @@
 # Entscheidungen
 
-Begriffe: [Glossar](Glossar.md). Grundlage sind der ursprüngliche Entwurf und die im Konzeptgespräch bestätigten Festlegungen. Stand: 2026-09-10. IDs bleiben bei späteren Änderungen stabil.
+Begriffe: [Glossar](Glossar.md). Grundlage sind der ursprüngliche Entwurf und die im Konzeptgespräch bestätigten Festlegungen. Stand: 2026-09-12. IDs bleiben bei späteren Änderungen stabil.
 
 ## Bestätigte Entscheidungen
 
@@ -30,8 +30,16 @@ Begriffe: [Glossar](Glossar.md). Grundlage sind der ursprüngliche Entwurf und d
 | E-22 | Blockierte Wege enden am letzten zulässigen freien Haltefeld, keine automatische Umgehung. | Eigene Einheiten durchquerbar, aber keine regulären Haltefelder; ohne vorheriges Haltefeld bleibt die Einheit am Ausgangsort. |
 | E-23 | Transporter teilen ein Budget für Fahren und Laden; jede Ein- und Ausladung kostet sie 1 Bewegungspunkt. Kapazität unabhängig von Bewegungsrate. | Beliebige Abfolge in Eingabereihenfolge; Übergabe über benachbarte Felder, Ausladeziel sichtbar, frei und passierbar. |
 | E-24 | Laden beendet die eigene Bewegung des Passagiers; Einladen, Fahren und Ausladen im selben Turn bleiben als Transporterbefehle möglich. | Nach dem Ausladen stehen bleiben; Mitfahren erneuert kein Budget. |
-| E-25 | Insassen ohne Außenaktionen und eigenen Sichtbeitrag; Zerstörung des Transporters zerstört tatsächlich aufgenommene Insassen. | Geplante Aufnahme allein macht eine Einheit noch nicht zum Insassen; feste Sichtfläche bleibt bis zum nächsten Turn bestehen. |
+| E-25 | Transportpassagiere ohne Außenaktionen und eigenen Sichtbeitrag; Zerstörung des Transporters zerstört tatsächlich aufgenommene Insassen. | Geplante Aufnahme allein macht eine Einheit noch nicht zum Insassen; feste Sichtfläche bleibt bis zum nächsten Turn bestehen. |
 | E-26 | Erster Transporter erlaubt Aufnahmeprofil Infanterie, ein Platz je Verband; keine Aufnahme anderer Transporter. | Zulässigkeit unabhängig vom Einheitennamen; Gebäudeaufnahme separat. |
+| E-27 | Eroberer beendet Bewegung auf Gebäude und bleibt außerhalb des Inventars angreifbar; vollständige gegnerische Angriffsgelegenheit vor Übernahme. | Bei Erfolg automatische Aufnahme und Übernahme aller eingelagerten Einheiten; Abschlusszeitpunkt noch O-01. |
+| E-28 | Bauauftrag in Bewegungsphase; vollständige gegnerische Angriffsgelegenheit vor Fertigstellung. Pioniere besitzen auffüllbare Baupunkte und bleiben bei null erhalten. | Basen reparieren und ergänzen Baupunkte; sechs Straßenstücke je Stützpunkt bleiben Beispielwerte. |
+| E-29 | Produktionspunkte sind auftragsgebundener Fortschritt. Ein aktiver Auftrag je Fabrik, Warteschlange; Geschwindigkeit bestimmt Dauer. | Kein separater Produktionsressourcenpool. Abbruch verliert Fortschritt, keine Restübertragung, neue Aufträge bei null. Präzisiert E-04. |
+| E-30 | Fertigstellung zu Beginn eigener Bewegungsphase; Ausrücken erst in der darauffolgenden eigenen Bewegungsphase. | Keine sofortige Bewegung neu fertiggestellter Einheiten. |
+| E-31 | Gebäudeaufnahme unbegrenzt; Betreten und Verlassen mit normalen Bewegungskosten wie Straßen. | Transporter dürfen hinein und werden beim Verbleib automatisch entladen; genauer Zeitpunkt und Zusatzkosten noch offen. |
+| E-32 | Gebäudeinsassen dürfen angreifen, sind nicht gezielt angreifbar und leisten keine Gegenwehr. | E-25 gilt für Transportpassagiere; Inventarverhalten wird durch getrennte Eigenschaften bestimmt. |
+| E-33 | Eroberung setzt Produktionsfortschritt und vorhandene Vorräte auf null. | Sämtliche eingelagerten Einheiten gehen über; Verbleib der Auftragseinträge offen. |
+| E-34 | Siegprüfung zwischen den Turns vor Fertigstellungen. | Eine erst danach fertige Einheit verhindert keine bereits festgestellte Niederlage. Bau-/Eroberungsabschluss noch einzuordnen. |
 
 ## Ersetzte oder eingeordnete Aussagen
 
@@ -49,6 +57,10 @@ Begriffe: [Glossar](Glossar.md). Grundlage sind der ursprüngliche Entwurf und d
 | Zuletzt bekannte Einheiten ausgegraut darstellen | Außerhalb der Sicht keine Einheitenpositionen darstellen; Gelände und Strukturen bleiben bekannt (E-20). |
 | Bewegung kann neue Bewegungsfelder aufdecken | Sichtfläche bleibt im Turn fest; Neuberechnung zum nächsten Turn (E-21). |
 | Aufnahme beendet sämtliche Transportmöglichkeiten des Passagiers | Eigene Bewegung endet, weitere Beförderung und Ausladung im selben Turn bleiben möglich (E-24). |
+| Produktionspunkte als separater Vorrat | Fortschritt am aktiven Auftrag ohne Ressourcenpool (E-29). |
+| Pionier bei verbrauchten Baupunkten entfernen | Bleibt erhalten und kann aufgefüllt werden (E-28). |
+| Alle aufgenommenen Einheiten ohne Außenaktionen | Gilt für Transportpassagiere; Gebäudeinsassen dürfen angreifen (E-32). |
+| Siegprüfung zu Beginn eigener Bewegungsphase | Präzisiert: zwischen Turns vor Fertigstellungen (E-34). |
 
 ## Offene Fragen
 
@@ -56,12 +68,12 @@ Offen bedeutet nicht verworfen. Antworten werden vor Umsetzung des betreffenden 
 
 | ID | Frage / Entscheidungsbedarf | Vor welcher Umsetzung? |
 |---|---|---|
-| O-01 | Welche Phasen erlauben Bau, Reparatur und Produktionsaufträge? In welcher Reihenfolge erfolgen diese, Eroberung und Siegprüfung relativ zu Kampf und Bewegung? | Vollständige Turnauswertung |
-| O-02 | Produktionspunkte lokal je Gebäude oder gemeinsamer Pool? Wann entstehen Punkte und Baufortschritt? Wie wirken Kosten, Bauzeit, parallele Aufträge, Abbruch, Engpässe und fehlende Ressourcen? | Wirtschaft und Produktion |
-| O-03 | Baukosten, Bauzeit, zulässige Bauplätze, Gebäudegröße, Kapazität und Verbrauch beziehungsweise Wiederverwendung der Baueinheit? | Stützpunktbau |
-| O-04 | Wann wird erobert, welche Zielbedingungen gelten und was geschieht mit Warteschlangen, Ressourcen, laufenden Reparaturen und verschachtelten Transportinhalten? | Eroberung |
+| O-01 | Bauauftrag in Bewegung und volle gegnerische Angriffsgelegenheit bestätigt. Wann folgen Bauabschluss und Eroberungsabschluss relativ zu Bewegung und Siegprüfung? Gilt Fertigstellung nach Siegprüfung auch für Bauwerke? Einordnung von Reparatur und Produktionsbefehlen noch offen. | Vollständige Turnauswertung |
+| O-02 | Serielle Produktion als Fortschritt ohne Ressourcenpool, Abbruchverlust und kein Restübertrag bestätigt. Offen: erste Gutschrift, Fortschrittszeitpunkt, Rundung nicht ganzzahliger Dauer und Start des nächsten Auftrags. | Wirtschaft und Produktion |
+| O-03 | Baupunkte und Erhalt leerer Pioniere bestätigt. Offen: Abzug bei Beginn oder Abschluss, Bauplatz, Gebäudegröße, konkrete Kosten, Bindung an Bauort sowie Folgen von Abbruch, Verlassen und Zerstörung. | Stützpunktbau |
+| O-04 | Besetzen, angreifbarer Eroberer und Inventarübernahme bestätigt; Fortschritt und Vorräte verloren. Offen: Auftragseinträge löschen oder bei null übernehmen, laufende Reparaturen, Umfang der Vorräte, Verlassen/Wechsel der Besetzung und andere Eroberungsvoraussetzungen. | Eroberung |
 | O-05 | Teilweise geklärt durch E-14, E-15, E-17 bis E-19: Reihenfolge, unmittelbare Verluste, Gegenwehrzeitpunkt und Zufallsbandbreite stehen fest. Offen: endgültige Formel, Rundung, Grundwerte, Zielbindung, Gegenwehr-Zielprüfung und Zuweisung, Zufallsverfahren. | Kampf |
-| O-06 | Wie werden optionale Siegziele verknüpft und geprüft? Umgang mit Gleichstand, gleichzeitig erfüllten Zielen, fehlenden Hauptquartieren und eingelagerten Einheiten bei Vernichtung? | Siegbedingungen |
+| O-06 | Prüfung zwischen Turns vor Fertigstellungen bestätigt. Offen: beide Spieler oder nur nächster bewegender Spieler, Verknüpfung optionaler Ziele, Gleichstände und Zählung eingelagerter Einheiten sowie Szenarien ohne Hauptquartier. | Siegbedingungen |
 | O-07 | E-14, E-16 und E-20 bis E-26 klären Reihenfolge, Blockadestopp, Sichtwechsel und grundlegenden Transport. Offen: Sichtgeometrie, allgemeine Anzahl gewöhnlicher Bewegungsbefehle, Listenposition nach Befehlsänderung und sonstige ungültige Befehle; Transportfehler siehe O-16. | Bewegung und Fog of War |
 | O-08 | Eigenschaftsabhängigkeiten, Konflikte, Mehrfachvorkommen, gemeinsame Parameter und Konfigurationsgrenzen? Welche Regeln sind Kerninvarianten? | Eigenschaftsmodell |
 | O-09 | Plugin-Vertrag, Editoranbindung, Versionen, Szenarioformat, Spielstandformat, Migrationen und Plattformkompatibilität? | Plugins und Speichern/Laden |
@@ -71,7 +83,9 @@ Offen bedeutet nicht verworfen. Antworten werden vor Umsetzung des betreffenden 
 | O-13 | Netzwerkprotokoll, Wiederverbindung, Zeitlimits, Hosting-Stufen, Nakama-Ziel und Elo? | Netzwerkspiel |
 | O-14 | Priorität und Umfang von Forschung, Unterhalt, Tutorial, Audio und Monetarisierung? | Jeweilige Erweiterung |
 | O-15 | Konkrete Höhenstufen und Zuordnung zum bisherigen Wertebereich, Höhenwirkung, Straßen- und Brückenkosten, Deckungskombinationen und endgültige Deckungswerte? | Geländewechselwirkungen |
-| O-16 | Konkrete Transportkapazität, Kosten fehlgeschlagener Ladebefehle und Behandlung abhängiger Folgebefehle; Aufnahme- und Austrittskosten sowie Profile stationärer Gebäude und deren Aufnahme von Transportern? | Transport und Gebäudeaufnahme |
+| O-16 | Konkrete Transporterkapazität, Kosten fehlgeschlagener Ladebefehle und abhängige Folgebefehle bleiben offen. Gebäude unbegrenzt und normale Bewegungskosten wie Straßen bestätigt. Offen: Aufnahmeprofile, Zeitpunkt und Zusatzkosten automatischer Entladung, Weiterbewegung nach Eintritt/Austritt. | Transport und Gebäudeaufnahme |
+| O-17 | Reparatur und Baupunkteauffüllung: Kosten, Dauer, Umfang, zulässige Phase, Zielprofile, gleichzeitige Nutzung anderer Fähigkeiten? | Basen und Pioniere |
+| O-18 | Inventarangriffe: Reichweitenursprung, Sichtbeitrag und Zielaufklärung? Angreifbarkeit/Zerstörung des Gebäudes und Folgen für Insassen? Dürfen neu produzierte Einheiten vor ihrem ersten Ausrücken bereits angreifen? | Gebäude und Kampf |
 
 ## Einordnung gegenüber Battle Isle 1
 

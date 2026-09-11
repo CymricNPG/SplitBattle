@@ -1,41 +1,57 @@
 # Gebäude
 
-[Katalogübersicht und Status](README.md) · [Eigenschaften](Eigenschaften.md) · [Allgemeine Spielregeln](../Spielregeln.md)
+[Katalog](README.md) · [Bau und Produktion](Bau_und_Produktion.md) · [Eigenschaften](Eigenschaften.md) · [Allgemeine Spielregeln](../Spielregeln.md)
 
-## Bisher festgelegte Aufgaben
+Stand: 2026-09-12. Die Regeln beschreiben die Standardkonfiguration. Fähigkeiten hängen an Eigenschaften, nicht an Gebäudenamen.
 
-| Gebäude | Bestätigte Aufgabe im Standardregelsatz | Eigenschaften / fachliche Zuordnung |
-|---|---|---|
-| Hauptquartier | Die Eroberung des gegnerischen Hauptquartiers ermöglicht den Standardsieg | Besitzerzuordnung, Position, Eroberungsziel; Zuordnung zur Siegbedingung im Regelsatz |
-| Fabrik | Erzeugt Produktionspunkte pro Runde, stellt Einheiten über eine Warteschlange her und kann Einheiten aufnehmen | Besitzerzuordnung, Position, Ressourcenerzeugung, Produktion, Aufnahme, Eroberungsziel |
-| Stützpunkt | Durch Baueinheiten errichtbar, eroberbar; nimmt Einheiten auf und repariert sie | Besitzerzuordnung, Position, Aufnahme, Reparatur, Eroberungsziel |
+## Aufgaben
 
-Die Aufgaben sind bestätigt; ihre genaue Zerlegung in technische Eigenschaftstypen ist noch ein fachlicher Entwurf. Insbesondere ist „Eroberungsziel“ nicht gleichbedeutend mit der aktiven Fähigkeit einer Einheit, etwas zu erobern.
-
-## Gemeinsame Regeln
-
-- Eroberungsfähige Einheiten können nach den noch zu präzisierenden Zielbedingungen Gebäude übernehmen. Im Standard besitzt Infanterie diese Fähigkeit.
-- Erfolgreiche Eroberung überträgt das Gebäude samt eingelagerten Einheiten an den Eroberer.
-- Aufnahme ist derselbe wiederverwendbare Grundbaustein wie bei Transportern; Gebäude erhalten dadurch keine Bewegungsfähigkeit.
-- Fabriken erzeugen einen konfigurierten Betrag an Produktionspunkten pro Runde, nicht pro Turn.
-- Fertiggestellte Einheiten können in der nächsten eigenen Bewegungsphase nach Fertigstellung ausrücken.
-- Der Verlust einer gewöhnlichen Fabrik oder eines Stützpunkts ist nicht automatisch eine Niederlage.
-
-## Offene Parameter
-
-| Thema | Noch zu entscheiden |
+| Gebäude | Bestätigte Aufgabe |
 |---|---|
-| Hauptquartier | Zusätzliche Aufnahme-, Reparatur- oder Produktionsfähigkeiten |
-| Fabrik | Ertrag, herstellbare Typen, Ressourcenpool, Kosten, Bauzeiten und Warteschlangenregeln |
-| Stützpunkt | Baukosten, Bauzeit, Bauplatzbedingungen, Gebäudegröße und Rolle der Baueinheit nach dem Bau |
-| Aufnahme | Kapazitäten und zulässige Insassen je Gebäude |
-| Reparatur | Kosten, Dauer, Umfang und zulässige Ziele |
-| Eroberung | Auslösung, Voraussetzungen und Behandlung laufender Aufträge sowie Ressourcen |
-| Darstellung und Gelände | Belegung von Hexfeldern und Wechselwirkung mit dem Untergrund |
+| Hauptquartier | Seine Eroberung ermöglicht den Standardsieg. |
+| Fabrik | Ein aktiver Produktionsauftrag mit Baufortschritt und Warteschlange. |
+| Stützpunkt / Basis | Errichtbar und eroberbar; Reparatur von Einheiten und Auffüllen von Baupunkten. |
 
-Es werden derzeit keine unbestätigten Zahlen oder zusätzlichen Gebäudefähigkeiten festgelegt. Weitere Details folgen mit den Wechselwirkungen und den offenen Fragen O-01 bis O-04 in [Entscheidungen](../Entscheidungen.md).
+Gebäude verwenden gemeinsame Aufnahme- und Besitzerregeln. Zusätzliche Produktions- oder Reparaturfähigkeiten des Hauptquartiers sind noch nicht festgelegt.
 
+## Eroberung
 
-## Abgrenzung zum Transport
+Eine Einheit mit passender Eroberungsfähigkeit beendet ihre Bewegung auf dem Gebäude. Im Standard besitzt Infanterie diese Fähigkeit. Sie bleibt bis zur erfolgreichen Übernahme **außerhalb des Inventars und angreifbar**.
 
-Die [Transportregeln](Bewegung_und_Transport.md) verwenden Aufnahme auch als gemeinsamen Baustein für Gebäude. Die Kosten von 1 Bewegungspunkt je Ladeaktion gelten für Transporter und werden nicht automatisch auf stationäre Gebäude übertragen. Aufnahme- und Austrittskosten sowie die Unterbringung von Transportern in Gebäuden bleiben separat zu klären (O-16).
+Der Gegner muss nach Beginn der Besetzung eine vollständige Angriffsgelegenheit erhalten. Nur wenn der Eroberer diese überlebt, kann die Eroberung abgeschlossen werden. Der exakte Abschlusszeitpunkt relativ zu Bewegung und Siegprüfung bleibt O-01. Weitere Bedingungen wie Verlassen des Feldes oder Wechsel der besetzenden Einheit bleiben O-04.
+
+Bei erfolgreichem Abschluss:
+
+- Gebäude und sämtliche eingelagerten Einheiten wechseln zum Eroberer.
+- Die erobernde Einheit wird automatisch in das Inventar aufgenommen.
+- Produktionsfortschritt und vorhandene Vorräte gehen verloren und beginnen bei null.
+- Die Behandlung der Auftragseinträge in der Warteschlange bleibt offen: Löschen oder Neustart bei null ist noch nicht entschieden.
+
+## Aufnahme und Bewegung
+
+Im Standard passen unbegrenzt viele Einheiten in ein Gebäude. Zulässige Aufnahmeprofile sind davon getrennt und noch zu konkretisieren.
+
+Betreten und Verlassen verwenden normale Bewegungskosten. Das Gebäude ist hierfür ein normales Feld mit denselben Bewegungskosten wie eine Straße. Die konkreten Straßenkosten sind weiterhin offen; es wird kein zusätzlicher Pauschalpreis je Ladeaktion aus den Transporterregeln übernommen.
+
+Transporter können in Gebäude fahren. Wenn sie dort bleiben, werden sie automatisch ins Gebäude entladen. Damit wechseln die Passagiere vom Transporter in das Gebäudeinventar. Der genaue Auslösezeitpunkt („Rundenende“ oder Ende der eigenen Bewegung), mögliche zusätzliche Kosten und Weiterbewegung sind offen (O-16). Das Verbot, Transporter in andere Transporter zu laden, bleibt bestehen.
+
+## Fähigkeiten eingelagerter Einheiten
+
+| Verhalten | Gebäudeinventar | Transportinventar |
+|---|---|---|
+| Angriff aus dem Inventar | Ja, bei vorhandener Angriffsfähigkeit | Nein |
+| Gezielter Angriff auf Insassen | Nicht zulässig | Transporter kann angegriffen werden; seine Zerstörung zerstört Insassen |
+| Gegenwehr / Teilnahme an Verteidigung | Nein, auch bei eigener Gegenwehrfähigkeit | Nein |
+| Eigener Sichtbeitrag | Noch offen | Nein bei Sichtneuberechnung |
+| Aufnahmegrenze | Unbegrenzt im Standard | Konfigurierte Kapazität |
+
+Gebäudeinsassen sind nicht gezielt angreifbar. Ob das Gebäude selbst angegriffen oder zerstört werden kann und welche Folgen dies hätte, bleibt offen. Reichweitenursprung und Zielaufklärung für Inventarangriffe sind ebenfalls offen (O-18). Eine erobernde Einheit außerhalb des Inventars ist nicht durch diese Regeln geschützt.
+
+## Beispiele und offene Details
+
+- Ein Eroberer wird während der gegnerischen Angriffsgelegenheit zerstört: keine erfolgreiche Übernahme durch ihn, keine automatische Aufnahme.
+- Ein Eroberer überlebt und die übrigen Eroberungsbedingungen sind erfüllt: Besitzerwechsel samt Inventar am noch festzulegenden Abschlusszeitpunkt.
+- Eine eingelagerte bewaffnete Einheit kann angreifen, aber nicht zur Gegenwehr verwendet oder gezielt beschossen werden.
+- Eine volle Kapazität blockiert im Standard keine Produktion oder Aufnahme, da Gebäude unbegrenzte Kapazität besitzen.
+
+Offen bleiben Bauplätze und Gebäudegröße, genaue Abschlusszeitpunkte, Warteschlangenbehandlung bei Eroberung, Aufnahmeprofile, automatisches Entladen, Weiterbewegung, Reparaturparameter und Inventarangriffe. Siehe O-01 bis O-04 sowie O-16 bis O-18 in [Entscheidungen](../Entscheidungen.md).

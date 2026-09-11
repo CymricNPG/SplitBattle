@@ -33,13 +33,13 @@ Dabei bezeichnet `||` ausschließlich die parallele Planung. Kein eingegebener B
 
 Bereits zerstörte Ziele können nicht erneut beschädigt werden; zerstörte Angreifer können keine späteren Befehle mehr ausführen. Automatische Ersatzzielwahl ist damit nicht beschlossen. Die Behandlung sonstiger ungültig gewordener Befehle bleibt offen.
 
-Die Regel zur Änderung eigener Befehle bleibt bestehen. Ob Änderungen die Listenposition beeinflussen, ist nicht entschieden. Auch Bau, Produktion, Reparatur, Eroberung und Siegprüfung müssen noch in den Gesamtturn eingeordnet werden; ihre Reihenfolge wird hier nicht erfunden.
+Die Regel zur Änderung eigener Befehle bleibt bestehen. Ob Änderungen die Listenposition beeinflussen, ist nicht entschieden. Siegprüfung findet zwischen den Turns vor Fertigstellungen statt. Produktionsfertigstellung erfolgt zu Beginn eigener Bewegungsphase, Ausrücken erst in der darauffolgenden. Bau- und Eroberungsabschluss setzen eine vollständige gegnerische Angriffsgelegenheit voraus; ihre genaue Einordnung und Reparatur bleiben offen. Siehe [Bau und Produktion](Bau_und_Produktion.md).
 
 ## Bewegung, Aufnahme und feste Sichtfläche
 
 Die [Bewegungs- und Transportregeln](Bewegung_und_Transport.md) ergänzen diesen Ablauf. Wege bleiben vollständig auf den zu Turnbeginn sichtbaren Feldern. Bei Blockaden endet Bewegung am letzten zulässigen freien Haltefeld, ohne automatische Umgehung. Fahrten und Ladeaktionen des Transporters teilen ein Budget; Laden kostet jeweils 1 Punkt des Transporters und beendet die eigene Bewegung des Passagiers. Die Transportkette Einladen, Fahren, Ausladen bleibt im selben Turn möglich.
 
-Die ganze Karte mit Gelände und Strukturen ist bekannt, außerhalb der Sicht ausgegraut und ohne Einheiten oder zuletzt bekannte Einheitenpositionen. Die Sichtfläche bleibt während der Ausführung fest; sie wird erst für den nächsten Turn aus neuen Positionen berechnet. Ein- und Ausladen erzeugen keine sofortige Sichtänderung. Aufgenommene Insassen tragen bei der Neuberechnung keine Sicht bei. Sichtbarkeit eines Feldes gewährt keine Anzeige einer darin nicht mehr existierenden Einheit.
+Die ganze Karte mit Gelände und Strukturen ist bekannt, außerhalb der Sicht ausgegraut und ohne Einheiten oder zuletzt bekannte Einheitenpositionen. Die Sichtfläche bleibt während der Ausführung fest; sie wird erst für den nächsten Turn aus neuen Positionen berechnet. Ein- und Ausladen erzeugen keine sofortige Sichtänderung. Transportpassagiere tragen bei der Neuberechnung keine Sicht bei; Gebäudeinsassen sind bezüglich Sicht noch offen. Sichtbarkeit eines Feldes gewährt keine Anzeige einer darin nicht mehr existierenden Einheit.
 
 ## Gegenwehr und Verluste
 
@@ -110,3 +110,8 @@ Diese Szenarien dienen der späteren Abnahme; es wurden noch keine Spieltests au
 ## Verbleibende Entscheidungen
 
 Gegenwehr-Zielprüfung, endgültige Formel und Balancewerte, Höhenstufen und Sichtgeometrie, Straßen- und Brückenkosten, Bauplatzbedingungen sowie Fehlerkosten und abhängige Folgebefehle bleiben offen. Blockadestopp, Sichtaktualisierung und grundlegende Transportabläufe sind im verlinkten Kapitel festgelegt. Siehe O-05, O-07, O-15 und O-16 in [Entscheidungen](../Entscheidungen.md).
+
+
+## Gebäudeinventar
+
+Die [Gebäuderegeln](Gebaeude.md) erlauben Angriffe eingelagerter bewaffneter Einheiten, aber keine gezielten Angriffe auf diese und keine Gegenwehr. Diese Kombination gilt nicht für Transportpassagiere. Ein erobernder Verband bleibt bis zur Übernahme außerhalb des Inventars angreifbar. Reichweitenursprung, Zielaufklärung und mögliche Gebäudezerstörung bleiben O-18.

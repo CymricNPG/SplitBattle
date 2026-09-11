@@ -32,7 +32,7 @@ Abnahme: Ein neu angelegtes Szenario einschließlich angepasster Einheitendefini
 - [ ] Verdeckte Planung, Befehlsänderung, gemeinsamer Auswertungsbeginn und Rollenwechsel umsetzen (TURN-01 bis TURN-04).
 - [ ] Angriffe samt sofortiger Gegenwehr, Verlusten und Entfernung in Eingabereihenfolge umsetzen, erst danach Bewegungen in Eingabereihenfolge (TURN-05, COMBAT-01 bis COMBAT-03); verbleibende Details O-05 zuvor klären.
 - [ ] Eroberung samt eingelagerten Einheiten und Stützpunktbau umsetzen (CAP-01, BUILD-01).
-- [ ] Produktionspunkte, Warteschlangen und verzögertes Ausrücken umsetzen (ECO-01 bis ECO-03).
+- [ ] Auftragsgebundenen Fortschritt ohne Ressourcenpool, serielle Warteschlange ohne Restübertrag und verzögertes Ausrücken umsetzen (ECO-01 bis ECO-03).
 - [ ] Standardsiege und konfigurierbare Ziele umsetzen (WIN-01, WIN-02).
 - [ ] Bewegungs-, Aufnahme-, Sicht- und Deckungsregeln umsetzen (WORLD-01, WORLD-02, MOVE-01, MOVE-02, TRANS-01 bis TRANS-05, TERRAIN-01, TERRAIN-02); feste Sichtfläche, Fahr-/Ladebudget und Passagierzustand prüfen, verbleibende Details O-07, O-15 und O-16 klären.
 - [ ] O-01 bis O-07 für diesen Umfang entscheiden und reproduzierbare Auswertung prüfen (DET-01).
@@ -60,3 +60,6 @@ Abnahme: Zwei Menschen können ein im Editor erstelltes Szenario laden und bis z
 | Späterer Produktbetrieb | Online-Hosting, Elo, mögliche Nakama-Integration und Monetarisierung separat entscheiden. |
 
 Forschung und Unterhalt bleiben unpriorisierte Ideen. Erweiterbarkeit wird bereits in M1 angelegt und nicht erst nach dem ersten spielbaren Meilenstein ergänzt.
+
+
+Ergänzung vom 2026-09-12 für M3: BUILD-02 und INV-01 bis INV-03 abdecken; O-17 und O-18 vor Reparatur und Inventarangriffen klären. Bau- und Eroberungsabschluss benötigen eine vollständige gegnerische Angriffsgelegenheit; Siegprüfung muss vor Produktionsfertigstellungen liegen.

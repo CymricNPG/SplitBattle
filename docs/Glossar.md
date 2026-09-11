@@ -25,7 +25,7 @@ Verbindliche Begriffe für [Konzept](Konzept.md), [Spielregeln](Spielregeln.md),
 | Ereignis (Event)                               | Meldung über eine Interaktion oder einen eingetretenen Vorgang.                                                                                                                                  |
 | Eroberung                                      | Regelgerechter Besitzerwechsel eines Gebäudes; im Standard einschließlich eingelagerter Einheiten.                                                                                               |
 | Fabrik                                         | Im Standardregelsatz Gebäude mit Erzeugung von Produktionspunkten und Herstellung von Einheiten.                                                                                                 |
-| Fog of War | Vollständig bekannte Karte; unsichtbare Felder ausgegraut und ohne Einheiten oder deren zuletzt bekannte Positionen. Sichtfläche während eines Turns fest, Neuberechnung zum nächsten Turn. |
+| Fog of War                                     | Vollständig bekannte Karte; unsichtbare Felder ausgegraut und ohne Einheiten oder deren zuletzt bekannte Positionen. Sichtfläche während eines Turns fest, Neuberechnung zum nächsten Turn.      |
 | Fähigkeit                                      | Durch Eigenschaften ermöglichtes Verhalten, beispielsweise Erobern oder Reparieren.                                                                                                              |
 | Gebietsziel                                    | Ziel zur Kontrolle definierter Gebiete oder eines konfigurierten Anteils.                                                                                                                        |
 | Gebäude                                        | Standortgebundenes Spielobjekt, beispielsweise Hauptquartier, Fabrik oder Stützpunkt.                                                                                                            |
@@ -48,7 +48,7 @@ Verbindliche Begriffe für [Konzept](Konzept.md), [Spielregeln](Spielregeln.md),
 | Planungsphase                                  | Zeitraum zur Eingabe und Änderung eigener Befehle vor dem eigenen Turnabschluss.                                                                                                                 |
 | Plugin                                         | Erweiterungsmodul, das beispielsweise Eigenschaftstypen, Verhalten oder Inhalte bereitstellt.                                                                                                    |
 | Produktionsauftrag                             | Auftrag zur Herstellung eines definierten Einheitentyps.                                                                                                                                         |
-| Produktionspunkte                              | Regelmäßig erzeugte Ressource für die Herstellung von Einheiten; bisher auch Industriepunkte genannt.                                                                                            |
+| Produktionspunkte | Fortschritt am aktiven Fabrikauftrag; im Standard kein separater Ressourcenvorrat. |
 | Produktionswarteschlange                       | Geordnete Liste von Herstellungsaufträgen mit Baufortschritt.                                                                                                                                    |
 | Regelsatz                                      | Zusammenstellung der für eine Partie geltenden Regeln und Einstellungen.                                                                                                                         |
 | Reproduzierbarkeit                             | Gleiche Ausgangslage, Regeln, Seeds und Befehle liefern dasselbe Ergebnis.                                                                                                                       |
@@ -73,14 +73,26 @@ Verbindliche Begriffe für [Konzept](Konzept.md), [Spielregeln](Spielregeln.md),
 
 ## Bewegung und Transport
 
+| Begriff                    | Bedeutung                                                                                                                                                  |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Aufnahme                   | Gemeinsame Fähigkeit von Gebäuden und Transportern, zulässige Einheiten bis zur definierten Kapazität aufzunehmen.                                         |
+| Aufnahmeprofil             | Merkmal einer möglichen Passagiereinheit, das ihre Aufnahme unabhängig vom Einheitennamen erlaubt; etwa Infanterie.                                        |
+| Transportbedarf            | Benötigte Aufnahmeplätze; beim ersten Infanterietransporter ein Platz je Verband.                                                                          |
+| Transportkapazität         | Maximal verfügbare Aufnahmeplätze; unabhängig vom Bewegungspunktebudget.                                                                                   |
+| Ladeaktion                 | Ein- oder Ausladen; kostet im ersten Transportregelsatz den Transporter jeweils 1 Bewegungspunkt.                                                          |
+| Passagier / Insasse        | Tatsächlich aufgenommene Einheit; eine erst geplante Aufnahme zählt noch nicht.                                                                            |
+| Bewegungssperre nach Laden | Nach Ein- oder Ausladen führt der Passagier im selben Turn keine eigene Bewegung mehr aus; Beförderung und Ausladen durch den Transporter bleiben möglich. |
+| Sichtfläche                | Menge der für einen Spieler in diesem Turn sichtbaren Felder; wird erst für den nächsten Turn neu berechnet.                                               |
+| Haltefeld                  | Freies, für die Einheit passierbares Feld, auf dem ihre Bewegung regulär enden darf.                                                                       |
+
+## Bau und Produktion
+
 | Begriff | Bedeutung |
 |---|---|
-| Aufnahme | Gemeinsame Fähigkeit von Gebäuden und Transportern, zulässige Einheiten bis zur definierten Kapazität aufzunehmen. |
-| Aufnahmeprofil | Merkmal einer möglichen Passagiereinheit, das ihre Aufnahme unabhängig vom Einheitennamen erlaubt; etwa Infanterie. |
-| Transportbedarf | Benötigte Aufnahmeplätze; beim ersten Infanterietransporter ein Platz je Verband. |
-| Transportkapazität | Maximal verfügbare Aufnahmeplätze; unabhängig vom Bewegungspunktebudget. |
-| Ladeaktion | Ein- oder Ausladen; kostet im ersten Transportregelsatz den Transporter jeweils 1 Bewegungspunkt. |
-| Passagier / Insasse | Tatsächlich aufgenommene Einheit; eine erst geplante Aufnahme zählt noch nicht. |
-| Bewegungssperre nach Laden | Nach Ein- oder Ausladen führt der Passagier im selben Turn keine eigene Bewegung mehr aus; Beförderung und Ausladen durch den Transporter bleiben möglich. |
-| Sichtfläche | Menge der für einen Spieler in diesem Turn sichtbaren Felder; wird erst für den nächsten Turn neu berechnet. |
-| Haltefeld | Freies, für die Einheit passierbares Feld, auf dem ihre Bewegung regulär enden darf. |
+| Baupunkte | Auffüllbarer Bauvorrat eines Pioniers; von Verbandsstärke und Fabrikfortschritt getrennt. Bei null bleibt der Pionier erhalten. |
+| Pionier | Baueinheit mit Baupunkten; kann ihren Vorrat in geeigneten Basen auffüllen. |
+| Baugeschwindigkeit | Produktionspunkte pro Runde, mit denen eine Fabrik ihren aktiven Auftrag bearbeitet. |
+| Produktionsfortschritt | Bereits erbrachte Leistung am Auftrag; bei Abbruch verloren, kein Restübertrag. |
+| Produktionskosten | Für die Herstellung eines Einheitentyps erforderlicher Gesamtfortschritt. |
+| Gebäudeinventar | Unbegrenzt aufnehmender Bestand im Standard; Insassen können angreifen, sind nicht gezielt angreifbar und leisten keine Gegenwehr. |
+| Gegnerische Angriffsgelegenheit | Vollständiger gegnerischer Angriffsteil nach Beginn von Besetzung oder Bau; ein bloßer Rollenwechsel reicht dafür nicht. |

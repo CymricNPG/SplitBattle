@@ -41,7 +41,7 @@ Maßgeblich ist [Bewegung und Transport](Spielregeln/Bewegung_und_Transport.md).
 
 Eigene Einheiten sind durchquerbar, normale Haltefelder müssen frei und passierbar sein. Bei einer Blockade hält die Einheit am letzten zulässigen freien Feld vor dem Hindernis, ohne automatische Umgehung.
 
-Transporter können Fahrten und Ladeaktionen in Eingabereihenfolge verketten. Ein- und Ausladen auf benachbarten Feldern kostet jeweils den Transporter 1 Bewegungspunkt. Ein- oder Ausladen beendet die eigene Bewegung des Passagiers, verhindert aber nicht dessen anschließende Beförderung und Ausladung im selben Turn. Nach dem Ausladen bleibt er stehen. Insassen sind nach außen inaktiv; bei Zerstörung ihres Transporters werden sie ebenfalls zerstört.
+Transporter können Fahrten und Ladeaktionen in Eingabereihenfolge verketten. Ein- und Ausladen auf benachbarten Feldern kostet jeweils den Transporter 1 Bewegungspunkt. Ein- oder Ausladen beendet die eigene Bewegung des Passagiers, verhindert aber nicht dessen anschließende Beförderung und Ausladung im selben Turn. Nach dem Ausladen bleibt er stehen. Transportpassagiere sind nach außen inaktiv; bei Zerstörung ihres Transporters werden sie ebenfalls zerstört.
 
 ## Eigenschaften statt Typabfragen
 
@@ -53,29 +53,23 @@ Plugins können neue Eigenschaftstypen und ihr Verhalten bereitstellen. Welche K
 
 ## Gebäude, Bau und Eroberung
 
-- Fabriken verfügen im Standard über die Erzeugung von Produktionspunkten und die Herstellung von Einheiten.
-- Stützpunkte können im Standard Einheiten reparieren, Einheiten aufnehmen und erobert werden.
-- Baueinheiten erhalten die Fähigkeit, Stützpunkte zu errichten. Erlaubte Bauwerke werden durch ihre Definition bestimmt.
-- Bei erfolgreicher Eroberung wechseln das Gebäude und die darin eingelagerten Einheiten zum erobernden Spieler.
-- Kosten, Bauzeit, Bauplatzregeln, Kapazitäten und genauer Auslösezeitpunkt einer Eroberung sind noch offen (O-03, O-04).
+Die [Gebäuderegeln](Spielregeln/Gebaeude.md) definieren unbegrenzte Aufnahme im Standard, Bewegungskosten wie Straßen und Angriffe aus dem Inventar ohne gezielte Angreifbarkeit oder Gegenwehr der Insassen. Dies unterscheidet sich von Transportpassagieren.
 
-Beispiel: In einer gegnerischen Fabrik befinden sich zwei Einheiten. Eine Einheit mit passender Eroberungsfähigkeit erobert die Fabrik erfolgreich. Danach gehören Fabrik und beide eingelagerten Einheiten dem Eroberer. Die Behandlung laufender Produktionsaufträge ist damit noch nicht entschieden (O-04).
+Eine eroberungsfähige Einheit beendet ihre Bewegung auf dem Gebäude und bleibt außerhalb des Inventars angreifbar. Vor Übernahme muss der Gegner eine vollständige Angriffsgelegenheit erhalten. Bei erfolgreicher Übernahme wechseln Gebäude und sämtliche eingelagerten Einheiten den Besitzer; der Eroberer wird aufgenommen. Produktionsfortschritt und vorhandene Vorräte gehen verloren. Die Warteschlangenbehandlung bleibt offen.
+
+Bauaufträge werden in der Bewegungsphase erteilt und dürfen ebenfalls nicht vor einer vollständigen gegnerischen Angriffsgelegenheit fertig werden. Pioniere besitzen auffüllbare Baupunkte und bleiben bei null Punkten erhalten. Basen reparieren Einheiten und ergänzen Baupunkte. Abschlusszeitpunkte und Reparaturdetails stehen noch aus.
 
 ## Produktionspunkte und Warteschlangen
 
-Fabriken erzeugen einen konfigurierten Betrag an Produktionspunkten pro Runde. Produktionsaufträge stehen in einer geordneten Warteschlange und haben konfigurierbare Bauzeiten, die mehrere Runden umfassen können.
+[Bau und Produktion](Spielregeln/Bau_und_Produktion.md) präzisiert: Produktionspunkte sind Fortschritt am aktiven Auftrag, kein separater Ressourcenvorrat. Eine Fabrik bearbeitet jeweils einen Auftrag; weitere warten. Produktionskosten geteilt durch Baugeschwindigkeit ergeben die rechnerische Dauer in Runden; Rundung und Gutschriftzeitpunkt bleiben offen. Abbruch vernichtet Fortschritt, Restleistung wird nicht übertragen, neue Aufträge starten bei null.
 
-Eine fertiggestellte Einheit befindet sich im produzierenden Gebäude und kann in der nächsten eigenen Bewegungsphase nach Fertigstellung ausrücken. Sie erhält keine Bewegung rückwirkend für einen bereits geplanten Turn.
-
-Beispiel: Wird eine Einheit nach einer bereits abgeschlossenen Bewegungsplanung fertiggestellt, kann sie für diese Planung keinen nachträglichen Bewegungsbefehl erhalten. Erst die folgende eigene Bewegungsphase erlaubt das Ausrücken.
-
-Noch offen sind der genaue Fortschrittszeitpunkt, das Zusammenspiel von Kosten und Bauzeit, Ressourcenpools, Warteschlangenparallelität sowie Abbruch und Kapazitätsengpässe (O-02). Aus „pro Runde“ darf nicht versehentlich „pro Turn“ werden.
+Einheiten werden zu Beginn einer eigenen Bewegungsphase fertig und können erst in der darauffolgenden eigenen Bewegungsphase ausrücken. Die Siegprüfung zwischen den Turns erfolgt vor Fertigstellungen.
 
 ## Siegbedingungen
 
 Im Standard führt die Eroberung des gegnerischen Hauptquartiers oder die Vernichtung aller gegnerischen Einheiten zum Sieg. Zusätzliche Gebietsziele, etwa Kontrolle eines konfigurierten Anteils, und Missionsziele sind konfigurierbar.
 
-Der Verlust aller gewöhnlichen Städte oder Fabriken ist keine zusätzliche automatische Niederlageregel. Die genaue Verknüpfung optionaler Ziele, Gleichstände, der Prüfzeitpunkt sowie Sonderfälle ohne Hauptquartier oder Einheiten sind offen (O-06).
+Der Verlust aller gewöhnlichen Städte oder Fabriken ist keine zusätzliche automatische Niederlageregel. Die Prüfung erfolgt zwischen den Turns vor Fertigstellungen. Die Verknüpfung optionaler Ziele, Gleichstände, Prüfung für beide oder nur einen Spieler sowie Sonderfälle ohne Hauptquartier oder Einheiten bleiben offen (O-06). Eroberungs- und Bauabschluss sind noch exakt einzuordnen (O-01).
 
 ## Weitere Regeln aus dem Ausgangsentwurf
 

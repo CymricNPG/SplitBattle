@@ -46,11 +46,11 @@ Aufnahmeprofil, Bewegungsprofil und Zielprofil sind verschiedene Begriffe. Beisp
 - Ausladen erfolgt auf ein benachbartes sichtbares, freies und für den Passagier passierbares Feld.
 - Jede Einladeaktion und jede Ausladeaktion kostet den **Transporter einen Bewegungspunkt** aus demselben Budget wie seine Fahrt.
 - Fahren, Einladen und Ausladen dürfen in beliebiger Reihenfolge innerhalb des Budgets geplant werden. Zwischen den Befehlen kann sich die Position des Transporters ändern.
-- Transporter dürfen im ersten Regelsatz nicht in andere Transporter geladen werden. Ihre Unterbringung in Gebäuden wird separat behandelt.
+- Transporter dürfen im ersten Regelsatz nicht in andere Transporter geladen werden. Ihre Unterbringung in Gebäuden ist erlaubt; automatische Entladung wird in den Gebäuderegeln behandelt.
 
-Diese Ladekosten werden nicht automatisch auf stationäre Gebäude übertragen. Gebäude verwenden Aufnahme, erhalten dadurch aber kein Bewegungsbudget.
+Diese Ladekosten werden nicht automatisch auf stationäre Gebäude übertragen. Gebäude verwenden Aufnahme, erhalten dadurch aber kein Bewegungsbudget. Ihr Betreten und Verlassen kostet normale Bewegung wie auf Straßen; siehe [Gebäude](Gebaeude.md).
 
-## Passagiere
+## Passagiere in Transportern
 
 - Eine eigene Bewegung zum Ladeort verbraucht Bewegungspunkte des Passagiers.
 - Ein- oder Ausladen beendet seine eigene Bewegung für diesen Turn. Spätere eigene Bewegungsbefehle dieses Passagiers dürfen nicht mehr ausgeführt werden.
@@ -87,7 +87,7 @@ Die Beispiele sind Kriterien für spätere Tests; es wurden keine Spieltests aus
 
 - Konkrete Transportkapazität.
 - Kosten fehlgeschlagener Ladebefehle und Behandlung abhängiger Folgebefehle nach einem Fehlschlag.
-- Aufnahme- und Austrittskosten stationärer Gebäude sowie deren Aufnahmeprofile.
+- Aufnahmeprofile von Gebäuden, automatisches Entladen und Weiterbewegung; normale Bewegungskosten beim Betreten und Verlassen sind wie bei Straßen festgelegt.
 - Allgemeine Anzahl gewöhnlicher Bewegungsbefehle pro Einheit; hierfür wird keine zusätzliche Entscheidung aus den Transportketten abgeleitet.
 - Listenposition nach Änderung eines geplanten Befehls.
 

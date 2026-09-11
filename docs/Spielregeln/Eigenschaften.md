@@ -17,7 +17,7 @@ Die folgende Aufteilung ist ein **fachlicher Vorschlag**, kein festgelegtes API-
 | Verbandsstärke | Maximale Stärke; genaue Skalierung der Angriffskraft offen | Aktuelle Stärke einer Einheit; Verluste verringern die Angriffskraft |
 | Bewegung | Bewegungsprofil und Punktebudget | Bewegung einer Einheit; Profil unabhängig von Bewaffnung und Zielprofil |
 | Zielprofil | Ungeschützt, leicht gepanzert oder schwer gepanzert als vorgeschlagenes Startset | Grundlage für die Wirksamkeit von Waffen; keine Kampfformel vorgegeben |
-| Sicht | Sichtweite | Berechnung zum nächsten Turn aus neuen Positionen; Sichtfläche während des Turns fest, aufgenommene Insassen tragen bei der Neuberechnung nicht bei |
+| Sicht | Sichtweite | Berechnung zum nächsten Turn aus neuen Positionen; Sichtfläche während des Turns fest, Transportpassagiere tragen bei der Neuberechnung nicht bei; Gebäudeinsassen noch offen |
 | Angriff | Mindest- und Maximalreichweite, Wirksamkeit je Zielprofil | Regulärer Angriff; konkrete Schadenswerte noch offen |
 | Indirektes Feuer | Nutzung gemeinsamer aktueller Aufklärung | Erlaubt Angriff ohne eigene freie Sichtlinie; benötigt Angriffsfähigkeit |
 | Gegenwehr | Reaktionslimit und Schadensfaktor | Verbleibende Reaktionen; nur ausdrücklich ausgestattete Einheiten reagieren |
@@ -26,10 +26,12 @@ Die folgende Aufteilung ist ein **fachlicher Vorschlag**, kein festgelegtes API-
 | Transportbedarf | Ein Platz je Verband im ersten Infanterietransporter | Belegt Aufnahmeplätze unabhängig von aktueller Verbandsstärke |
 | Transport | Im ersten Regelsatz 1 Bewegungspunkt je Ein- oder Ausladen aus dem Budget des Transporters | Fahrt und Laden verkettbar; Insassen ohne Außenaktionen, bei Zerstörung mitzerstört; keine verschachtelten Transporter |
 | Eroberung | Zulässige Eroberungsziele | Ermöglicht regelgerechten Besitzerwechsel |
-| Bau | Errichtbare Objektdefinitionen; Kosten und Dauer offen | Bauvorgang, soweit nach späterer Regeldefinition erforderlich |
+| Bau | Errichtbare Definitionen und Kosten in Baupunkten | Bauauftrag mit gegnerischer Angriffsgelegenheit vor Abschluss |
+| Bauvorrat | Maximale Baupunkte | Aktuelle Baupunkte; bei null bleibt die Einheit bestehen |
+| Baupunkteauffüllung | Zulässige Ziele, Umfang, Kosten und Dauer noch offen | Ergänzt Bauvorrat in geeigneten Basen, unabhängig von Verbandsstärke |
 | Reparatur | Zulässige Ziele, Umfang, Kosten und Dauer offen | Wiederherstellung beschädigter Einheiten |
-| Ressourcenerzeugung | Ressourcenart und Ertrag je Runde | Fabriken erzeugen Produktionspunkte; Buchungsregeln offen |
-| Produktion | Herstellbare Definitionen, Kosten und Bauzeiten | Produktionswarteschlange mit Aufträgen und Baufortschritt |
+| Produktionsleistung | Baugeschwindigkeit in Produktionspunkten pro Runde | Fortschritt nur am aktiven Auftrag; kein getrennter Ressourcenpool im Standard |
+| Produktion | Herstellbare Definitionen und Produktionskosten | Ein aktiver Auftrag, Warteschlange und Fortschritt; keine Restübertragung |
 
 Bewegungsprofil und Zielprofil sind getrennt: Ein Kettenfahrzeug kann leicht oder schwer gepanzert sein. Eine schwere Panzerung ist keine automatische Folge des Bewegungsprofils.
 
@@ -71,4 +73,10 @@ Die Kombination mehrerer Beiträge zu Kosten, Deckung oder Sicht bleibt teilweis
 
 ## Bewegung und Aufnahme im ersten Regelsatz
 
-Die [Transportregeln](Bewegung_und_Transport.md) konkretisieren die Bausteine. Kapazität und Bewegungsrate sind unabhängig. Laden beendet die eigene Bewegung des Passagiers, nicht die Beförderung durch den Transporter. Die eigene Bewegungssperre des Passagiers und sein Aufenthaltsort sind Instanzzustand. Aufnahmeprofile und Kapazität sind Definitionsparameter. Gebäude verwenden denselben Aufnahmebaustein; ihre Lade- und Austrittskosten sind separat offen.
+Die [Transportregeln](Bewegung_und_Transport.md) konkretisieren die Bausteine. Kapazität und Bewegungsrate sind unabhängig. Laden beendet die eigene Bewegung des Passagiers, nicht die Beförderung durch den Transporter. Die eigene Bewegungssperre des Passagiers und sein Aufenthaltsort sind Instanzzustand. Aufnahmeprofile und Kapazität sind Definitionsparameter. Gebäude verwenden denselben Aufnahmebaustein; Betreten und Verlassen verwenden normale Bewegungskosten wie Straßen. Automatisches Entladen und Weiterbewegung bleiben offen.
+
+## Inventarregeln getrennt konfigurieren
+
+Aufnahme, Angriff aus dem Inventar, gezielte Angreifbarkeit und Gegenwehr sind getrennte fachliche Merkmale. Gebäude verwenden im Standard unbegrenzte Aufnahme, erlauben Angriffe bewaffneter Insassen, verbieten gezielte Angriffe auf Insassen und deren Gegenwehr. Transportpassagiere bleiben ohne Außenaktionen. Ein Gebäudename ist keine Voraussetzung für diese Kombination. Konkrete Plugin-Schnittstellen bleiben offen.
+
+Produktionsfortschritt ist an einen Auftrag gebunden. Baupunkte sind dagegen ein auffüllbarer Vorrat einer Baueinheit. Beide dürfen nicht als derselbe Zustandswert modelliert werden. Details: [Bau und Produktion](Bau_und_Produktion.md).
