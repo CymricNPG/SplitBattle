@@ -27,13 +27,13 @@ Bei der Planung ergeben sich erwartete Positionen, Belegungen und freie Transpor
 
 ## Wiederverwendbare Bausteine
 
-| Baustein | Bedeutung |
-|---|---|
-| Bewegung | Bewegungsprofil und Bewegungspunktebudget |
-| Aufnahme | Kapazität und erlaubte Aufnahmeprofile; auch für Gebäude verwendbar |
-| Aufnahmeprofil | Merkmal einer möglichen Passagiereinheit; bestimmt die Zulässigkeit unabhängig vom Namen |
-| Transportbedarf | Benötigte Kapazität; im ersten Infanterietransporter ein Platz je Verband |
-| Transport | Beförderung aufgenommener Einheiten und Ladeaktionen |
+| Baustein        | Bedeutung                                                                                |
+|-----------------|------------------------------------------------------------------------------------------| 
+| Bewegung        | Bewegungsprofil und Bewegungspunktebudget                                                |
+| Aufnahme        | Kapazität und erlaubte Aufnahmeprofile; auch für Gebäude verwendbar                      |
+| Aufnahmeprofil  | Merkmal einer möglichen Passagiereinheit; bestimmt die Zulässigkeit unabhängig vom Namen |
+| Transportbedarf | Benötigte Kapazität; im ersten Infanterietransporter ein Platz je Verband                |
+| Transport       | Beförderung aufgenommener Einheiten und Ladeaktionen                                     |
 
 Aufnahmeprofil, Bewegungsprofil und Zielprofil sind verschiedene Begriffe. Beispielsweise muss die Erlaubnis zum Transport nicht aus der Fußbewegung abgeleitet werden. Die genaue technische Aufteilung dieser Bausteine ist kein festgelegtes API-Schema.
 
@@ -70,18 +70,18 @@ Eine erst für später geplante Aufnahme macht eine benachbarte Einheit noch nic
 
 Die Beispiele sind Kriterien für spätere Tests; es wurden keine Spieltests ausgeführt. Beispielwege setzen sichtbare, zulässige Felder, passende Nachbarschaft und freie Kapazität voraus.
 
-| Situation | Erwartetes Ergebnis |
-|---|---|
-| Transporter mit 6 Punkten: 2 fahren, einladen, 2 fahren, ausladen | 2 + 1 + 2 + 1 = 6 Punkte verbraucht; Passagier bleibt am Ausladeort stehen. |
-| Passagier nähert sich vor dem Einladen | Annäherung kostet eigene Punkte; Einladen kostet den Transporter 1 Punkt und beendet die eigene Bewegung des Passagiers. |
-| Ein weiterer eigener Bewegungsbefehl des Passagiers folgt nach dem Ausladen | Dieser darf nicht ausgeführt werden. |
-| Späher fährt an den bisherigen Sichtrand | Keine zusätzliche Sicht und keine neuen Bewegungsziele für andere Einheiten im selben Turn. |
-| Ein Weg führt über ein unsichtbares Feld zu einem sichtbaren Ziel | Der Weg darf nicht geplant werden. |
-| Nächster Turn beginnt | Sicht wird aus den neuen Positionen berechnet. Außerhalb davon erscheinen Gelände und Strukturen ausgegraut, Einheiten werden ausgeblendet. |
-| Weg endet an einem Hindernis hinter einer eigenen Einheit | Halt auf dem letzten freien zulässigen Feld davor, nicht auf dem belegten Feld; keine Umgehung. |
-| Transporter wird vor der Bewegung zerstört | Bereits aufgenommene Insassen werden zerstört. Eine erst zur Aufnahme vorgesehene benachbarte Einheit wird dadurch nicht mitzerstört. |
-| Einheit ohne Aufnahmeprofil Infanterie soll einsteigen | Der erste Transporter nimmt sie nicht auf, auch wenn ihr Anzeigename „Infanterie“ lautet. |
-| Ein Transporter soll in einen anderen geladen werden | Im ersten Regelsatz unzulässig. |
+| Situation                                                                   | Erwartetes Ergebnis                                                                                                                         |
+|-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| Transporter mit 6 Punkten: 2 fahren, einladen, 2 fahren, ausladen           | 2 + 1 + 2 + 1 = 6 Punkte verbraucht; Passagier bleibt am Ausladeort stehen.                                                                 |
+| Passagier nähert sich vor dem Einladen                                      | Annäherung kostet eigene Punkte; Einladen kostet den Transporter 1 Punkt und beendet die eigene Bewegung des Passagiers.                    |
+| Ein weiterer eigener Bewegungsbefehl des Passagiers folgt nach dem Ausladen | Dieser darf nicht ausgeführt werden.                                                                                                        |
+| Späher fährt an den bisherigen Sichtrand                                    | Keine zusätzliche Sicht und keine neuen Bewegungsziele für andere Einheiten im selben Turn.                                                 |
+| Ein Weg führt über ein unsichtbares Feld zu einem sichtbaren Ziel           | Der Weg darf nicht geplant werden.                                                                                                          |
+| Nächster Turn beginnt                                                       | Sicht wird aus den neuen Positionen berechnet. Außerhalb davon erscheinen Gelände und Strukturen ausgegraut, Einheiten werden ausgeblendet. |
+| Weg endet an einem Hindernis hinter einer eigenen Einheit                   | Halt auf dem letzten freien zulässigen Feld davor, nicht auf dem belegten Feld; keine Umgehung.                                             |
+| Transporter wird vor der Bewegung zerstört                                  | Bereits aufgenommene Insassen werden zerstört. Eine erst zur Aufnahme vorgesehene benachbarte Einheit wird dadurch nicht mitzerstört.       |
+| Einheit ohne Aufnahmeprofil Infanterie soll einsteigen                      | Der erste Transporter nimmt sie nicht auf, auch wenn ihr Anzeigename „Infanterie“ lautet.                                                   |
+| Ein Transporter soll in einen anderen geladen werden                        | Im ersten Regelsatz unzulässig.                                                                                                             |
 
 ## Verbleibende Details
 

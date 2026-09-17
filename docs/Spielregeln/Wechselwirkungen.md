@@ -19,7 +19,7 @@ Die Verknüpfung erfolgt über Eigenschaften und Profile, nicht über Einheitenn
 
 ## Verbindlicher Turnablauf
 
-`(Spieler 1: Bewegungen planen || Spieler 2: Angriffe planen) → Spieler 2: alle Angriffe ausführen → Spieler 1: alle Bewegungen ausführen → Rollen wechseln`
+`(Spieler 1: Bewegungen planen || Spieler 2: Angriffe planen) → Angriffe → Bewegungen → fällige Eroberungen → Siegprüfung → Turngrenzschritte → Rollenwechsel`
 
 Dabei bezeichnet `||` ausschließlich die parallele Planung. Kein eingegebener Befehl wird bereits während der Planung ausgeführt.
 
@@ -29,11 +29,14 @@ Dabei bezeichnet `||` ausschließlich die parallele Planung. Kein eingegebener B
 4. Beim ersten Angriff auf eine entsprechend befähigte, überlebende Einheit folgt gegebenenfalls sofort deren Gegenwehr. Ihr Schaden und mögliche Zerstörungen werden ebenfalls sofort angewendet, bevor der nächste Angriff beginnt.
 5. Während sämtlicher Gefechte stehen die Einheiten an ihren bisherigen Positionen. Es gibt keine Bewegung zwischen zwei Angriffen.
 6. Erst nach der vollständigen Angriffsliste wird die Bewegungsliste in Eingabereihenfolge ausgeführt. Zerstörte Einheiten führen keinen Bewegungsbefehl mehr aus.
-7. Danach wechseln die Rollen. Zwei Turns bilden eine Runde.
+7. Fällige Eroberungen schließen ab, sofern ihre Besetzer die erforderliche gegnerische Angriffsphase überlebt haben.
+8. Danach werden die Siegbedingungen geprüft. Bei Sieg endet die Partie ohne weitere Turngrenzschritte.
+9. Andernfalls erhält jede Fabrik des Spielers mit Bewegungsphase ihren Rundenfortschritt. Fällige Bauaufträge schließen ab; anschließend führt jeder Stützpunkt dieses Spielers höchstens einen Auftrag aus seiner gemeinsamen Reparatur- und Baupunkteauffüll-Warteschlange aus.
+10. Danach wechseln die Rollen. Zwei Turns bilden eine Runde.
 
 Bereits zerstörte Ziele können nicht erneut beschädigt werden; zerstörte Angreifer können keine späteren Befehle mehr ausführen. Automatische Ersatzzielwahl ist damit nicht beschlossen. Die Behandlung sonstiger ungültig gewordener Befehle bleibt offen.
 
-Die Regel zur Änderung eigener Befehle bleibt bestehen. Ob Änderungen die Listenposition beeinflussen, ist nicht entschieden. Siegprüfung findet zwischen den Turns vor Fertigstellungen statt. Produktionsfertigstellung erfolgt zu Beginn eigener Bewegungsphase, Ausrücken erst in der darauffolgenden. Bau- und Eroberungsabschluss setzen eine vollständige gegnerische Angriffsgelegenheit voraus; ihre genaue Einordnung und Reparatur bleiben offen. Siehe [Bau und Produktion](Bau_und_Produktion.md).
+Die Regel zur Änderung eigener Befehle bleibt bestehen. Ob Änderungen die Listenposition beeinflussen, ist nicht entschieden. Die Siegprüfung liegt nach fälligen Eroberungen und vor den übrigen Turngrenzschritten. Produktionsfertigstellung erfolgt zu Beginn der nächsten eigenen Bewegungsphase nach Erreichen der Kosten; Ausrücken erst in der darauffolgenden. Bauabschlüsse setzen eine vollständige gegnerische Angriffsgelegenheit voraus. Kosten, Umfang und Zielprofile der Stützpunktaufträge bleiben offen. Siehe [Bau und Produktion](Bau_und_Produktion.md).
 
 ## Bewegung, Aufnahme und feste Sichtfläche
 

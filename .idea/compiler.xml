@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="25">
-      <module name="EmpireX.conquer" target="21" />
-      <module name="EmpireX.conquer.main" target="21" />
-      <module name="EmpireX.conquer.test" target="21" />
-      <module name="EmpireX.graphics" target="21" />
-      <module name="EmpireX.graphics.main" target="21" />
-      <module name="EmpireX.graphics.test" target="21" />
-      <module name="EmpireX.shared" target="21" />
-      <module name="EmpireX.shared.main" target="21" />
-      <module name="EmpireX.shared.test" target="21" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="25" />
   </component>
 </project>

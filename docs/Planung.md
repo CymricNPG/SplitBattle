@@ -20,7 +20,7 @@ Abnahme: Eine zusätzliche Einheitendefinition kombiniert vorhandene Eigenschaft
 ## M2: Karte und integrierter Editor
 
 - [ ] Kartenanzeige, Zoom, Scrollen, Auswahl und Objektinformationen umsetzen.
-- [ ] Desktop-Editor aus dem Hauptmenü öffnen; Technikentscheidung O-10 vorher treffen.
+- [ ] JavaFX-Editor aus dem Hauptmenü öffnen und die Navigation zum Probespiel sowie zurück prüfen.
 - [ ] Gelände und Definitionen bearbeiten, Objekte platzieren und Spielern zuordnen.
 - [ ] Verfügbare Siegbedingungen konfigurieren, Szenarien prüfen, speichern und laden.
 - [ ] Plugin-Eigenschaften im Editor bearbeiten (ED-01 bis ED-04).
@@ -35,7 +35,7 @@ Abnahme: Ein neu angelegtes Szenario einschließlich angepasster Einheitendefini
 - [ ] Auftragsgebundenen Fortschritt ohne Ressourcenpool, serielle Warteschlange ohne Restübertrag und verzögertes Ausrücken umsetzen (ECO-01 bis ECO-03).
 - [ ] Standardsiege und konfigurierbare Ziele umsetzen (WIN-01, WIN-02).
 - [ ] Bewegungs-, Aufnahme-, Sicht- und Deckungsregeln umsetzen (WORLD-01, WORLD-02, MOVE-01, MOVE-02, TRANS-01 bis TRANS-05, TERRAIN-01, TERRAIN-02); feste Sichtfläche, Fahr-/Ladebudget und Passagierzustand prüfen, verbleibende Details O-07, O-15 und O-16 klären.
-- [ ] O-01 bis O-07 für diesen Umfang entscheiden und reproduzierbare Auswertung prüfen (DET-01).
+- [ ] Die verbleibenden O-02 bis O-07 für diesen Umfang entscheiden und reproduzierbare Auswertung prüfen (DET-01).
 
 Abnahme: Die Beispiele in [Spielregeln](Spielregeln.md) und zugehörigen Akzeptanzkriterien funktionieren. Vereinfachte Entwicklungsabläufe mit nur Bewegung gelten nicht als fertige Spielregeln.
 
@@ -62,4 +62,4 @@ Abnahme: Zwei Menschen können ein im Editor erstelltes Szenario laden und bis z
 Forschung und Unterhalt bleiben unpriorisierte Ideen. Erweiterbarkeit wird bereits in M1 angelegt und nicht erst nach dem ersten spielbaren Meilenstein ergänzt.
 
 
-Ergänzung vom 2026-09-12 für M3: BUILD-02 und INV-01 bis INV-03 abdecken; O-17 und O-18 vor Reparatur und Inventarangriffen klären. Bau- und Eroberungsabschluss benötigen eine vollständige gegnerische Angriffsgelegenheit; Siegprüfung muss vor Produktionsfertigstellungen liegen.
+Ergänzung vom 2026-09-12 für M3: BUILD-02 und INV-01 bis INV-03 abdecken; die verbleibenden Parameter aus O-17 und O-18 vor Reparatur und Inventarangriffen klären. Bau- und Eroberungsabschluss benötigen eine vollständige gegnerische Angriffsgelegenheit; fällige Eroberungen schließen vor der Siegprüfung, weitere Turngrenzschritte folgen nur ohne Sieg.

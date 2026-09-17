@@ -44,4 +44,4 @@ Deckungszahlen, proportionale Schadensformel und Gegenwehrfaktor 0,5 bleiben ung
 
 ## Gebäude, Bau und Produktion
 
-Stand 2026-09-12: [Gebäude](Gebaeude.md) und [Bau und Produktion](Bau_und_Produktion.md) konkretisieren Eroberungsfrist, Inventarangriffe, unbegrenzte Gebäudeaufnahme, auffüllbare Baupunkte und serielle Produktion ohne Ressourcenvorrat. Siegprüfung erfolgt vor Fertigstellungen. Offene Detailzeitpunkte sind im Entscheidungsregister gekennzeichnet.
+Stand 2026-09-17: [Gebäude](Gebaeude.md) und [Bau und Produktion](Bau_und_Produktion.md) konkretisieren Eroberungsfrist, Inventarangriffe, unbegrenzte Gebäudeaufnahme, auffüllbare Baupunkte und serielle Produktion ohne Ressourcenvorrat. Fällige Eroberungen schließen vor der Siegprüfung; weitere Turngrenzschritte folgen nur ohne Sieg. Offene Detailparameter sind im Entscheidungsregister gekennzeichnet.

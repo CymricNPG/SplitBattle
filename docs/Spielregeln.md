@@ -16,9 +16,10 @@ Dieses Dokument beschreibt den bestätigten Spielkern und den Standardregelsatz.
 4. Erst wenn beide abgeschlossen haben, beginnt die Auswertung. Nur die Planung erfolgt parallel; währenddessen wird kein Befehl ausgeführt.
 5. Alle Angriffe werden in Eingabereihenfolge ausgeführt. Nach jedem Angriff wirkt Schaden sofort; zerstörte Einheiten werden unmittelbar entfernt. Gegebenenfalls folgt sofort Gegenwehr, bevor der nächste Angriff beginnt.
 6. Erst nach sämtlichen Angriffen werden die Bewegungen in ihrer Eingabereihenfolge ausgeführt. Während der Gefechte bleiben alle Positionen unverändert; zerstörte Einheiten bewegen sich nicht mehr.
-7. Nach der Auswertung wechseln die Rollen. Zwei Turns bilden eine Runde, in der jeder Spieler einmal Bewegung und einmal Aktion erhält.
+7. Fällige Eroberungen schließen nach den Bewegungen ab; danach werden die Siegbedingungen geprüft.
+8. Bei fortgesetzter Partie folgen Produktionsfortschritt, Bauabschlüsse und Stützpunktaufträge. Anschließend wechseln die Rollen. Zwei Turns bilden eine Runde, in der jeder Spieler einmal Bewegung und einmal Aktion erhält.
 
-„Aktionsphase“ umfasst Angriffe und weitere nach dem Regelsatz zulässige Aktionen. Welche Phasen Bau-, Reparatur- und Produktionsbefehle erlauben, ist noch offen (O-01). Auch die exakte Einordnung dieser Vorgänge und der Siegprüfung ist noch nicht festgelegt.
+„Aktionsphase“ umfasst Angriffe und weitere nach dem Regelsatz zulässige Aktionen. Bauaufträge werden in der Bewegungsphase erteilt. Produktionsfortschritt sowie Stützpunktaufträge folgen nach der erfolglosen Siegprüfung im Turn der Bewegungsphase ihres Besitzers.
 
 ### Beispiel: Zwei Turns
 
@@ -57,19 +58,19 @@ Die [Gebäuderegeln](Spielregeln/Gebaeude.md) definieren unbegrenzte Aufnahme im
 
 Eine eroberungsfähige Einheit beendet ihre Bewegung auf dem Gebäude und bleibt außerhalb des Inventars angreifbar. Vor Übernahme muss der Gegner eine vollständige Angriffsgelegenheit erhalten. Bei erfolgreicher Übernahme wechseln Gebäude und sämtliche eingelagerten Einheiten den Besitzer; der Eroberer wird aufgenommen. Produktionsfortschritt und vorhandene Vorräte gehen verloren. Die Warteschlangenbehandlung bleibt offen.
 
-Bauaufträge werden in der Bewegungsphase erteilt und dürfen ebenfalls nicht vor einer vollständigen gegnerischen Angriffsgelegenheit fertig werden. Pioniere besitzen auffüllbare Baupunkte und bleiben bei null Punkten erhalten. Basen reparieren Einheiten und ergänzen Baupunkte. Abschlusszeitpunkte und Reparaturdetails stehen noch aus.
+Bauaufträge werden in der Bewegungsphase erteilt und ziehen ihre Baupunkte sofort ab. Sie schließen nach überlebter gegnerischer Angriffsgelegenheit, Bewegungen und einer erfolglosen Siegprüfung ab; Abbruch, Bewegung oder Zerstörung des Pioniers lässt die Investition verfallen. Pioniere besitzen auffüllbare Baupunkte und bleiben bei null Punkten erhalten. Jeder Stützpunkt führt nach den Bewegungen seines Besitzers pro Runde höchstens einen Auftrag aus seiner gemeinsamen Reparatur- und Baupunkteauffüll-Warteschlange aus. Kosten, Umfang und Zielprofile bleiben offen.
 
 ## Produktionspunkte und Warteschlangen
 
-[Bau und Produktion](Spielregeln/Bau_und_Produktion.md) präzisiert: Produktionspunkte sind Fortschritt am aktiven Auftrag, kein separater Ressourcenvorrat. Eine Fabrik bearbeitet jeweils einen Auftrag; weitere warten. Produktionskosten geteilt durch Baugeschwindigkeit ergeben die rechnerische Dauer in Runden; Rundung und Gutschriftzeitpunkt bleiben offen. Abbruch vernichtet Fortschritt, Restleistung wird nicht übertragen, neue Aufträge starten bei null.
+[Bau und Produktion](Spielregeln/Bau_und_Produktion.md) präzisiert: Produktionspunkte sind Fortschritt am aktiven Auftrag, kein separater Ressourcenvorrat. Eine Fabrik bearbeitet jeweils einen Auftrag; weitere warten. Nach einer erfolglosen Siegprüfung im Turn der eigenen Bewegungsphase schreibt sie einmal je Runde Fortschritt gut. Produktionskosten geteilt durch Baugeschwindigkeit ergeben die rechnerische Dauer in Runden; nur die Rundung bleibt offen. Abbruch vernichtet Fortschritt, Restleistung wird nicht übertragen und der Folgeauftrag beginnt erst im nächsten Fortschrittsschritt.
 
-Einheiten werden zu Beginn einer eigenen Bewegungsphase fertig und können erst in der darauffolgenden eigenen Bewegungsphase ausrücken. Die Siegprüfung zwischen den Turns erfolgt vor Fertigstellungen.
+Einheiten, deren Auftrag im vorherigen Fortschrittsschritt die Kosten erreicht hat, werden zu Beginn einer eigenen Bewegungsphase fertig und können erst in der darauffolgenden eigenen Bewegungsphase ausrücken. Die Siegprüfung zwischen den Turns erfolgt nach fälligen Eroberungen und vor weiteren Turngrenzschritten.
 
 ## Siegbedingungen
 
 Im Standard führt die Eroberung des gegnerischen Hauptquartiers oder die Vernichtung aller gegnerischen Einheiten zum Sieg. Zusätzliche Gebietsziele, etwa Kontrolle eines konfigurierten Anteils, und Missionsziele sind konfigurierbar.
 
-Der Verlust aller gewöhnlichen Städte oder Fabriken ist keine zusätzliche automatische Niederlageregel. Die Prüfung erfolgt zwischen den Turns vor Fertigstellungen. Die Verknüpfung optionaler Ziele, Gleichstände, Prüfung für beide oder nur einen Spieler sowie Sonderfälle ohne Hauptquartier oder Einheiten bleiben offen (O-06). Eroberungs- und Bauabschluss sind noch exakt einzuordnen (O-01).
+Der Verlust aller gewöhnlichen Städte oder Fabriken ist keine zusätzliche automatische Niederlageregel. Die Prüfung erfolgt zwischen den Turns nach fälligen Eroberungen und vor weiteren Turngrenzschritten. Die Verknüpfung optionaler Ziele, Gleichstände, Prüfung für beide oder nur einen Spieler sowie Sonderfälle ohne Hauptquartier oder Einheiten bleiben offen (O-06).
 
 ## Weitere Regeln aus dem Ausgangsentwurf
 

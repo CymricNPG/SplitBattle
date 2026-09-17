@@ -12,13 +12,13 @@ Stand: 2026-09-12. Die Regeln beschreiben die Standardkonfiguration. Fähigkeite
 | Fabrik | Ein aktiver Produktionsauftrag mit Baufortschritt und Warteschlange. |
 | Stützpunkt / Basis | Errichtbar und eroberbar; Reparatur von Einheiten und Auffüllen von Baupunkten. |
 
-Gebäude verwenden gemeinsame Aufnahme- und Besitzerregeln. Zusätzliche Produktions- oder Reparaturfähigkeiten des Hauptquartiers sind noch nicht festgelegt.
+Gebäude verwenden gemeinsame Aufnahme- und Besitzerregeln. Fabriken besitzen Produktion, aber weder Reparatur noch Baupunkteauffüllung; diese Fähigkeiten liegen bei Stützpunkten. Zusätzliche Produktions- oder Reparaturfähigkeiten des Hauptquartiers sind noch nicht festgelegt.
 
 ## Eroberung
 
 Eine Einheit mit passender Eroberungsfähigkeit beendet ihre Bewegung auf dem Gebäude. Im Standard besitzt Infanterie diese Fähigkeit. Sie bleibt bis zur erfolgreichen Übernahme **außerhalb des Inventars und angreifbar**.
 
-Der Gegner muss nach Beginn der Besetzung eine vollständige Angriffsgelegenheit erhalten. Nur wenn der Eroberer diese überlebt, kann die Eroberung abgeschlossen werden. Der exakte Abschlusszeitpunkt relativ zu Bewegung und Siegprüfung bleibt O-01. Weitere Bedingungen wie Verlassen des Feldes oder Wechsel der besetzenden Einheit bleiben O-04.
+Der Gegner muss nach Beginn der Besetzung eine vollständige Angriffsgelegenheit erhalten. Nur wenn der Eroberer diese überlebt, kann die Eroberung abgeschlossen werden. Der Abschluss erfolgt nach allen Bewegungen vor der Siegprüfung. Weitere Bedingungen wie Verlassen des Feldes oder Wechsel der besetzenden Einheit bleiben O-04.
 
 Bei erfolgreichem Abschluss:
 
@@ -50,8 +50,8 @@ Gebäudeinsassen sind nicht gezielt angreifbar. Ob das Gebäude selbst angegriff
 ## Beispiele und offene Details
 
 - Ein Eroberer wird während der gegnerischen Angriffsgelegenheit zerstört: keine erfolgreiche Übernahme durch ihn, keine automatische Aufnahme.
-- Ein Eroberer überlebt und die übrigen Eroberungsbedingungen sind erfüllt: Besitzerwechsel samt Inventar am noch festzulegenden Abschlusszeitpunkt.
+- Ein Eroberer überlebt und die übrigen Eroberungsbedingungen sind erfüllt: Besitzerwechsel samt Inventar nach Bewegungen vor der Siegprüfung.
 - Eine eingelagerte bewaffnete Einheit kann angreifen, aber nicht zur Gegenwehr verwendet oder gezielt beschossen werden.
 - Eine volle Kapazität blockiert im Standard keine Produktion oder Aufnahme, da Gebäude unbegrenzte Kapazität besitzen.
 
-Offen bleiben Bauplätze und Gebäudegröße, genaue Abschlusszeitpunkte, Warteschlangenbehandlung bei Eroberung, Aufnahmeprofile, automatisches Entladen, Weiterbewegung, Reparaturparameter und Inventarangriffe. Siehe O-01 bis O-04 sowie O-16 bis O-18 in [Entscheidungen](../Entscheidungen.md).
+Offen bleiben Bauplätze und Gebäudegröße, Warteschlangenbehandlung bei Eroberung, Aufnahmeprofile, automatisches Entladen, Weiterbewegung, Reparaturparameter und Inventarangriffe. Siehe O-03, O-04 sowie O-16 bis O-18 in [Entscheidungen](../Entscheidungen.md).

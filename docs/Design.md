@@ -20,7 +20,7 @@ flowchart LR
     Android --> Graphics
     Graphics --> Shared
     Server --> Shared
-    Desktop --> Editor[Integrierter Editor]
+    Desktop --> Editor[Integrierter JavaFX-Editor]
     Editor --> Shared
 ```
 
@@ -69,8 +69,9 @@ Die bisherigen Kategorien Combat-, Movement-, Economy-, Map-, Unit- und Visualiz
 
 ```mermaid
 flowchart TD
-    Init[Szenario laden und prüfen] --> P1[Spieler 1 plant Bewegungen]
-    Init --> P2[Spieler 2 plant Angriffe]
+    Init[Szenario laden und prüfen] --> Finish[Fällige Produktion des Spielers mit Bewegungsphase fertigstellen]
+    Finish --> P1[Spieler 1 plant Bewegungen]
+    Finish --> P2[Spieler 2 plant Angriffe]
     P1 --> Ready{Beide abgeschlossen?}
     P2 --> Ready
     Ready -- Nein --> Wait[Auf verbleibende Planung warten]
@@ -81,16 +82,16 @@ flowchart TD
     Damage --> Counter[Gegebenenfalls sofort Gegenwehr; Schaden und Entfernung]
     Counter --> Attacks
     Attacks -- Nein --> Move[Bewegungen in Eingabereihenfolge; zerstörte Einheiten auslassen]
-    Move --> Boundary[Turngrenze: Siegprüfung vor Fertigstellungen]
+    Move --> Capture[Fällige Eroberungen abschließen]
+    Capture --> Boundary[Siegprüfung]
     Boundary --> EndCheck{Spiel beendet?}
     EndCheck -- Ja --> End[Ergebnis anzeigen]
-    EndCheck -- Nein --> Swap[Rollen wechseln; nach zwei Turns neue Runde]
-    Swap --> Finish[Fällige Produktion zu Beginn eigener Bewegungsphase fertigstellen]
-    Finish --> P1
-    Finish --> P2
+    EndCheck -- Nein --> BoundarySteps[Produktionsfortschritt, Bauabschlüsse und ein Stützpunktauftrag]
+    BoundarySteps --> Swap[Rollen wechseln; nach zwei Turns neue Runde]
+    Swap --> Finish
 ```
 
-Die Spielerbezeichnungen im Diagramm stehen für die jeweiligen Rollen und werden nach jedem Turn getauscht. Nur die Planung erfolgt parallel. Alle Angriffe einschließlich unmittelbar folgender Gegenwehr werden nacheinander ausgeführt; erst danach folgen alle Bewegungen. Schäden und Zerstörungen wirken sofort. Maßgeblich sind die [Wechselwirkungen](Spielregeln/Wechselwirkungen.md). Das Diagramm zeigt nur die bestätigte Teilordnung. Siegprüfung erfolgt an der Turngrenze vor Produktionsfertigstellungen. Bau- und Eroberungsabschluss, Reparatur sowie genaue Fortschrittsbuchung sind bewusst nicht einsortiert (O-01 bis O-04, O-17). Insbesondere muss vor Bau- oder Eroberungsabschluss eine vollständige gegnerische Angriffsgelegenheit liegen. Neu fertige Einheiten rücken erst in der darauffolgenden eigenen Bewegungsphase aus. Ergebnisdarstellungen dürfen keine unbeabsichtigten Informationen außerhalb der jeweiligen Spielersicht offenlegen.
+Die Spielerbezeichnungen im Diagramm stehen für die jeweiligen Rollen und werden nach jedem Turn getauscht. Nur die Planung erfolgt parallel. Alle Angriffe einschließlich unmittelbar folgender Gegenwehr werden nacheinander ausgeführt; erst danach folgen alle Bewegungen. Schäden und Zerstörungen wirken sofort. Maßgeblich sind die [Wechselwirkungen](Spielregeln/Wechselwirkungen.md). Fällige Eroberungen schließen vor der Siegprüfung ab. Bei fortgesetzter Partie folgen Produktionsfortschritt, Bauabschlüsse und die Stützpunktaufträge des Spielers mit Bewegungsphase. Vor Bau- oder Eroberungsabschluss muss eine vollständige gegnerische Angriffsgelegenheit liegen. Neu fertige Einheiten rücken erst in der darauffolgenden eigenen Bewegungsphase aus. Ergebnisdarstellungen dürfen keine unbeabsichtigten Informationen außerhalb der jeweiligen Spielersicht offenlegen.
 
 Zwei Fenster repräsentieren zwei Spielersichten auf dieselbe Partie. Planungsänderungen sind bis zum eigenen Abschluss möglich; sie verändern noch nicht den maßgeblichen Weltzustand. Technische Trennung der Sichten verhindert kein Mitlesen am gemeinsamen Monitor.
 
@@ -121,11 +122,11 @@ flowchart LR
     Testspiel --> EditorScreen
 ```
 
-Screens besitzen eindeutige IDs und einheitliche Navigation. Die bisherige Idee eines ScreenManagers mit Registrierung und Parameterübergabe bleibt erhalten. Plugins können zusätzliche Screens beisteuern. JavaFX ist für den integrierten Desktop-Editor nur eine zu prüfende Option (O-10).
+Screens besitzen eindeutige IDs und einheitliche Navigation. Die bisherige Idee eines ScreenManagers mit Registrierung und Parameterübergabe bleibt für die LibGDX-Spielansicht erhalten. Der integrierte Desktop-Editor verwendet JavaFX für Oberfläche und Kartenansicht; der Desktopstarter vermittelt Navigation, Probespiel und Rückkehr zum Hauptmenü innerhalb derselben Anwendung. Plugins können zusätzliche Editoransichten bereitstellen. Eine direkte LibGDX-Einbettung ist nicht Teil der Architektur.
 
 Speicherung bleibt hinter austauschbaren Schnittstellen; JSON ist die bisherige Minimaloption. Szenario und Spielstand sind verschiedene fachliche Datenobjekte. Ein Spielstand muss die zur Fortsetzung notwendige Szenariogrundlage, Plugin-Zuordnung, Zufallsinformationen und den aktuellen Zustand nachvollziehbar zuordnen können. Speicherformat und Kompatibilitätsregeln werden vor Umsetzung festgelegt.
 
 
 ## Bau- und Inventareigenschaften
 
-Auftragsfortschritt der Fabrik, Baupunkte eines Pioniers und Verbandsstärke sind getrennte Zustände. Die Fabrik verarbeitet einen aktiven Auftrag; ihre Baugeschwindigkeit bestimmt Fortschritt ohne Ressourcenpool. Inventarregeln für Angriffe, Angreifbarkeit, Gegenwehr und Sicht werden separat beschrieben: Gebäude erlauben Angriffe, verbieten aber gezielte Angriffe auf Insassen und deren Gegenwehr; Transportpassagiere bleiben ohne Außenaktionen. [Bau und Produktion](Spielregeln/Bau_und_Produktion.md) und [Gebäude](Spielregeln/Gebaeude.md) sind die fachliche Grundlage.
+Auftragsfortschritt der Fabrik, Baupunkte eines Pioniers und Verbandsstärke sind getrennte Zustände. Die Fabrik verarbeitet einen aktiven Auftrag und schreibt einmal je Runde nach einer erfolglosen Siegprüfung Fortschritt gut. Baupunkte werden beim Bauauftrag abgezogen. Inventarregeln für Angriffe, Angreifbarkeit, Gegenwehr und Sicht werden separat beschrieben: Gebäude erlauben Angriffe, verbieten aber gezielte Angriffe auf Insassen und deren Gegenwehr; Transportpassagiere bleiben ohne Außenaktionen. [Bau und Produktion](Spielregeln/Bau_und_Produktion.md) und [Gebäude](Spielregeln/Gebaeude.md) sind die fachliche Grundlage.

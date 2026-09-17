@@ -25,7 +25,7 @@ Der Standardregelsatz sieht Folgendes vor:
 
 - Fabriken erzeugen Baufortschritt am jeweils einzigen aktiven Produktionsauftrag; weitere Aufträge warten. Es gibt keinen separaten Produktionsressourcenvorrat und keine Übertragung von Restleistung. Einheiten werden zu Beginn einer eigenen Bewegungsphase fertig und dürfen erst in der darauffolgenden eigenen Bewegungsphase ausrücken.
 - Baueinheiten errichten Stützpunkte und Infrastruktur mit Baupunkten. Bei null Baupunkten bleiben sie erhalten. Basen reparieren Einheiten und füllen Baupunkte auf. Vor Bauabschluss erhält der Gegner eine vollständige Angriffsgelegenheit.
-- Standardinfanterie beginnt Eroberung durch Beenden ihrer Bewegung auf dem Gebäude und bleibt bis zur Übernahme außerhalb des Inventars angreifbar. Nach vollständiger gegnerischer Angriffsgelegenheit und Überleben wechseln Gebäude und Inventar den Besitzer; Produktionsfortschritt und Vorräte gehen verloren.
+- Standardinfanterie beginnt Eroberung durch Beenden ihrer Bewegung auf dem Gebäude und bleibt bis zur Übernahme außerhalb des Inventars angreifbar. Nach vollständiger gegnerischer Angriffsgelegenheit und Überleben wechseln Gebäude und Inventar nach den Bewegungen vor der Siegprüfung den Besitzer; Produktionsfortschritt und Vorräte gehen verloren.
 - Eroberung des gegnerischen Hauptquartiers oder Vernichtung aller gegnerischen Einheiten führt zum Sieg. Zusätzliche Gebiets- und Missionsziele sind konfigurierbar.
 
 Fähigkeiten sind Eigenschaften von Objektdefinitionen. Die Bezeichnung „Infanterie“ ist keine fest codierte Voraussetzung für Eroberung. Ein anders konfigurierter Einheitentyp kann dieselbe Fähigkeit erhalten.
@@ -60,7 +60,7 @@ Der Editor ist Teil der Desktop-Anwendung und über das Hauptmenü erreichbar. B
 - Szenarien prüfen, speichern, laden und probespielen.
 - Durch Plugins ergänzte Eigenschaften bearbeiten.
 
-Android spielt kompatible Szenarien, benötigt aber keinen Editor. Die bisherige JavaFX-Vorgabe ist eine zu überprüfende Technikoption.
+Android spielt kompatible Szenarien, benötigt aber keinen Editor. Der Editor verwendet JavaFX für Rahmen, Dialoge und Kartenansicht innerhalb derselben Desktop-Anwendung; LibGDX wird nicht in JavaFX eingebettet. Spielansicht und Android bleiben LibGDX-basiert, während Fachlogik, Szenarioformate und Assets geteilt werden.
 
 ## Bedienung und Qualität
 
@@ -85,4 +85,4 @@ Weitere Ideen aus dem initialen Entwurf bleiben erhalten, sind aber noch keine a
 - Monetarisierungsidee: monatliches Kontingent kostenloser Mehrspielerpartien und kostenpflichtiger erweiterter Zugang. Umfang und Geschäftsmodell sind offen.
 
 
-Gebäude haben im Standard unbegrenzte Aufnahme und Bewegungskosten wie Straßen. Bewaffnete Gebäudeinsassen dürfen angreifen, sind nicht gezielt angreifbar und leisten keine Gegenwehr. Die Siegprüfung erfolgt zwischen den Turns vor Fertigstellungen. Detailregeln: [Gebäude](Spielregeln/Gebaeude.md) und [Bau und Produktion](Spielregeln/Bau_und_Produktion.md).
+Gebäude haben im Standard unbegrenzte Aufnahme und Bewegungskosten wie Straßen. Bewaffnete Gebäudeinsassen dürfen angreifen, sind nicht gezielt angreifbar und leisten keine Gegenwehr. Die Siegprüfung erfolgt zwischen den Turns nach fälligen Eroberungen und vor den übrigen Turngrenzschritten. Detailregeln: [Gebäude](Spielregeln/Gebaeude.md) und [Bau und Produktion](Spielregeln/Bau_und_Produktion.md).
