@@ -15,12 +15,15 @@ Verbindliche Begriffe für [Konzept](Konzept.md), [Spielregeln](Spielregeln.md),
 | Befehl                                         | Geplante Anweisung an ein Spielobjekt; noch keine ausgeführte Zustandsänderung.                                                                                                                  |
 | Bewegungsphase (Movement)                      | Zugteil eines Spielers zum Planen von Bewegungen.                                                                                                                                                |
 | Deckung                                        | Zielprofilabhängige Schadensreduktion; unabhängig von Passierbarkeit und Sichtbarkeit.                                                                                                           |
-| Eigenschaft                                    | Modularer Bestandteil einer Definition, der Daten oder Fähigkeiten beschreibt.                                                                                                                   |
-| Eigenschaftskonfiguration                      | Konkrete Auswahl und Parametrisierung eines Eigenschaftstyps innerhalb einer Definition.                                                                                                         |
-| Eigenschaftstyp                                | Wiederverwendbare Art einer Eigenschaft mit ihrer Bedeutung, ihren Parametern und gegebenenfalls Verhalten.                                                                                      |
+| Eigenschaft                                    | Fachlicher Baustein eines Spielobjekts; im ECS durch einen Komponententyp und gegebenenfalls ein Komponenten-Template ausgedrückt.                                                               |
+| Eigenschaftskonfiguration                      | Konkrete Auswahl und Parametrisierung eines Eigenschaftstyps; im ECS ein Komponenten-Template eines Prefabs.                                                                                     |
+| Eigenschaftstyp                                | Wiederverwendbare Art einer Eigenschaft; im ECS ein Komponententyp mit Bedeutung, Parametern und gegebenenfalls zugehörigem Fachsystem.                                                           |
 | Eingelagerte Einheit                           | Einheit im Aufnahmebereich eines Gebäudes, statt auf einem eigenen freien Kartenfeld.                                                                                                            |
+| Entität (Entity)                               | Konkretes Spielobjekt in der ECS-Welt einer Partie. Ihre Komponentenmenge bestimmt, ob sie etwa Einheit, Gebäude oder Hexfeld ist.                                                                |
+| Entitätsvorlage                                | Teil der Szenariostartaufstellung, der ein Prefab für die beim Partiestart zu erzeugende Entität auswählt.                                                                                       |
+| ECS-Welt                                       | Maßgebliche Menge der Entitäten und ihrer Laufzeitkomponenten in einer Partie.                                                                                                                   |
 | Einheit                                        | Spielobjekt mit militärischer, transportierender, bauender oder anderer durch Eigenschaften bestimmter Rolle.                                                                                    |
-| Einheitendefinition                            | Objektdefinition für einen Einheitentyp.                                                                                                                                                         |
+| Einheitendefinition                            | Objektdefinition für einen Einheitentyp; im ECS ein Prefab für Einheitenentitäten.                                                                                                              |
 | Elo-Wertung                                    | Wertung zur vergleichenden Einschätzung der Spielstärke; konkrete Berechnung ist noch offen.                                                                                                     |
 | Ereignis (Event)                               | Meldung über eine Interaktion oder einen eingetretenen Vorgang.                                                                                                                                  |
 | Eroberung                                      | Regelgerechter Besitzerwechsel eines Gebäudes; im Standard einschließlich eingelagerter Einheiten.                                                                                               |
@@ -31,22 +34,27 @@ Verbindliche Begriffe für [Konzept](Konzept.md), [Spielregeln](Spielregeln.md),
 | Gebäude                                        | Standortgebundenes Spielobjekt, beispielsweise Hauptquartier, Fabrik oder Stützpunkt.                                                                                                            |
 | Gegenwehr                                      | Ausdrücklich zugewiesene, abgeschwächte Reaktion eines überlebenden Verteidigers unmittelbar nach dem ersten Angriff, höchstens einmal je Turn.                                                  |
 | Hauptquartier                                  | Gebäude, dessen Eroberung im Standardregelsatz den Sieg ermöglicht.                                                                                                                              |
-| Hexfeld (Tile)                                 | Sechseckiges Kartenfeld mit Gelände- und Höheninformationen.                                                                                                                                     |
+| Hexfeld (Tile)                                 | Sechseckiges Kartenfeld mit Gelände- und Höheninformationen; im ECS eine Entität mit Hexfeld-, Terrain- und Höhenkomponente.                                                                    |
 | Hook                                           | Vorgesehener Anknüpfungspunkt für Erweiterungen, etwa Tutorialreaktionen auf Ereignisse.                                                                                                         |
 | Höhenstufe                                     | Abstrakte Erhebung unabhängig vom Grundgelände; konkrete Grenzen und Wirkungen noch offen.                                                                                                       |
 | Indirektes Feuer                               | Angriff ohne eigene freie Sichtlinie auf ein aktuell durch eigene Einheiten aufgeklärtes Ziel; halbiert die Deckungswirkung.                                                                     |
-| Instanz                                        | Konkretes Spielobjekt innerhalb einer Partie mit seinem aktuellen Zustand.                                                                                                                       |
-| Instanzzustand                                 | Veränderliche Daten einer Instanz, beispielsweise Besitzer, Position oder Schaden.                                                                                                               |
+| Instanz                                        | Konkretes Spielobjekt innerhalb einer Partie; im ECS eine Entität mit Laufzeitkomponenten.                                                                                                       |
+| Instanzzustand                                 | Veränderliche Daten einer Instanz; im ECS durch Laufzeitkomponenten wie Besitzer, Position oder Schaden gehalten.                                                                                |
 | Internationalisierung (i18n)                   | Vorbereitung von Texten und Darstellung für mehrere Sprachen und Regionen.                                                                                                                       |
 | KI                                             | Computergegner, der über dieselben fachlichen Befehlsregeln wie ein Mensch spielt.                                                                                                               |
+| Komponente                                     | Datenbaustein einer Entität. Komponenten sind entweder unveränderliche Templates in einem Prefab oder veränderliche Laufzeitkomponenten einer Partie.                                           |
+| Komponenten-Template                           | Unveränderliche Parametrisierung eines Komponententyps in einem Prefab.                                                                                                                          |
+| Komponententyp                                 | Wiederverwendbare Art einer Komponente, beispielsweise Bewegung, Sicht, Angriff oder Inventar.                                                                                                  |
+| Laufzeitkomponente                             | Veränderlicher Komponentenanteil einer Entität in der ECS-Welt, beispielsweise Position, Besitzer oder Produktionsfortschritt.                                                                   |
 | Missionsziel                                   | Szenariospezifisches Ziel; konkrete verfügbare Zielarten werden noch definiert.                                                                                                                  |
 | MVP                                            | Erster spielbarer Meilenstein: vollständiges lokales Duell mit integriertem Desktop-Editor.                                                                                                      |
-| Objektdefinition                               | Wiederverwendbare Beschreibung eines Spielobjekttyps aus Eigenschaften und Parametern.                                                                                                           |
+| Objektdefinition                               | Wiederverwendbare Beschreibung eines Spielobjekttyps aus Eigenschaften und Parametern; im ECS ein Prefab.                                                                                       |
 | Onion-Architektur                              | Architektur mit fachlichem Kern, auf den äußere technische Schichten zugreifen.                                                                                                                  |
 | Parameter                                      | Konfigurierbarer Wert einer Eigenschaft oder Regel, etwa Sichtweite oder Bauzeit.                                                                                                                |
 | Partie                                         | Konkreter Spielverlauf zwischen zwei Spielern auf Grundlage eines Szenarios.                                                                                                                     |
 | Planungsphase                                  | Zeitraum zur Eingabe und Änderung eigener Befehle vor dem eigenen Turnabschluss.                                                                                                                 |
-| Plugin                                         | Erweiterungsmodul, das beispielsweise Eigenschaftstypen, Verhalten oder Inhalte bereitstellt.                                                                                                    |
+| Prefab                                         | Unveränderliche ECS-Objektdefinition aus Komponenten-Templates, auf die Entitäten derselben fachlichen Art verweisen.                                                                            |
+| Plugin                                         | Erweiterungsmodul, das beispielsweise Komponententypen, Fachsysteme, Verhalten oder Inhalte bereitstellt.                                                                                       |
 | Produktionsauftrag                             | Auftrag zur Herstellung eines definierten Einheitentyps.                                                                                                                                         |
 | Produktionspunkte | Fortschritt am aktiven Fabrikauftrag; im Standard kein separater Ressourcenvorrat. |
 | Produktionswarteschlange                       | Geordnete Liste von Herstellungsaufträgen mit Baufortschritt.                                                                                                                                    |
@@ -59,17 +67,40 @@ Verbindliche Begriffe für [Konzept](Konzept.md), [Spielregeln](Spielregeln.md),
 | Shared / Server / Graphics / Desktop / Android | Projektmodule mit den in Design beschriebenen Verantwortlichkeiten.                                                                                                                              |
 | Sichtweite                                     | Eigenschaftsparameter, der zur Bestimmung aktuell sichtbarer Felder beiträgt.                                                                                                                    |
 | Siegbedingung                                  | Regel, deren Erfüllung nach den vereinbarten Auswertungsregeln einen Sieg bewirkt.                                                                                                               |
-| Spielobjekt                                    | Bestandteil der Spielwelt, etwa Einheit, Gebäude oder Geländefeld.                                                                                                                               |
+| Spielobjekt                                    | Bestandteil der Spielwelt, etwa Einheit, Gebäude oder Geländefeld; im ECS eine Entität.                                                                                                         |
 | Spielstand                                     | Gesicherter Zustand einer laufenden Partie einschließlich ihrer Szenariogrundlage.                                                                                                               |
 | Stacking                                       | Mehrere Einheiten auf demselben regulären Kartenfeld; im bisherigen Standard nicht erlaubt.                                                                                                      |
 | Stadt                                          | Begriff des Ausgangsentwurfs für einen Ort beziehungsweise ein Gebäude; keine automatisch festgelegte Produktionsfähigkeit.                                                                      |
 | Standardregelsatz                              | Mitgelieferte Ausgangskonfiguration des Spiels; keine unveränderliche Typzuordnung.                                                                                                              |
 | Stützpunkt (Basis)                             | Im Standardregelsatz errichtbares und eroberbares Gebäude zur Aufnahme und Reparatur von Einheiten.                                                                                              |
+| System (Fachsystem)                            | ECS-Baustein, der passende Entitäten und Komponenten abfragt und im Auftrag der Turn-Zustandsmaschine fachliche Regeln ausführt.                                                                 |
 | Szenario                                       | Spielvorlage aus Karte, Startaufstellung, Definitionen, Regeln, Zielen und benötigten Plugins.                                                                                                   |
 | Szenario-Editor                                | Integrierter Desktopbereich zum Erstellen, Bearbeiten, Prüfen und Probespielen von Szenarien.                                                                                                    |
 | Transporter                                    | Einheit mit einer Eigenschaft zur Aufnahme und Beförderung anderer Einheiten.                                                                                                                    |
 | Turn                                           | Gemeinsamer Abschnitt aus gleichzeitiger Planung und anschließender Auswertung.                                                                                                                  |
 | Turnabschluss                                  | Verbindliche Bestätigung der eigenen Planung. Die Auswertung wartet auf beide Spieler.                                                                                                           |
+
+## ECS-Laufzeitmodell
+
+| Begriff | Bedeutung |
+|---|---|
+| Aufenthaltskomponente | Einzige veränderliche Zuordnung einer Entität zu einem Hexfeld oder Aufnahmeobjekt. Inventar, Kapazitätsbelegung und Feldbelegung werden daraus abgeleitet. |
+| Besitzerkomponente | Aktueller Besitzer einer Einheit oder eines Gebäudes. |
+| Stärkekomponente | Aktuelle Verbandsstärke einer Einheit. |
+| Bewegungszustand | Verbleibendes Bewegungsbudget und Sperre nach Laden; wird zu Beginn der Bewegungsphase des Besitzers zurückgesetzt. |
+| Gegenwehrzustand | Vermerkt die bereits verbrauchte Gegenwehr einer Einheit; wird zu Beginn jedes Turns zurückgesetzt. |
+| Besetzungszustand | Vorläufige Bindung eines Eroberers an ein Zielgebäude bis zum Abbruch, zur Zerstörung oder zum erfolgreichen Besitzerwechsel. |
+| Bauvorrat | Aktuelle Baupunkte einer Baueinheit, getrennt von Verbandsstärke und Produktionsfortschritt. |
+| Bauauftragszustand | Laufender Bauauftrag einer Baueinheit einschließlich seiner noch erforderlichen Überlebensfrist. |
+| Produktionszustand | Aktiver Fabrikauftrag, sein Fortschritt und die Produktionswarteschlange. |
+| Einsatzbereitschaft | Sperre einer neu produzierten Einheit bis zur folgenden eigenen Bewegungsphase. |
+| Stützpunktwarteschlange | Gemeinsame Warteschlange für Reparatur- und Baupunkteauffüllaufträge eines Stützpunkts. |
+| Infrastrukturzustand | Dynamisch errichtete Infrastruktur eines Hexfelds, zusätzlich zum unveränderlichen Terrain-Prefab. |
+| Weltressource | Veränderlicher, maßgeblicher Zustand der ECS-Welt ohne einzelne Eigentümerentität. |
+| Turn-Zustandsmaschine | Weltressource für aktuelle Phase und Rollenverteilung; sie aktiviert Fachsysteme in bestätigter Reihenfolge. |
+| Zufallszustand | Weltressource, die reproduzierbare Zufallsberechnungen einer Partie ermöglicht. |
+| Sichtzustand | Weltressource mit der für den Turn festen Sichtfläche jedes Spielers. |
+| Partieergebnis | Weltressource, die das Ende und Ergebnis einer Partie festhält. |
 
 ## Bewegung und Transport
 

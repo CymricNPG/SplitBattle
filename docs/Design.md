@@ -26,44 +26,44 @@ flowchart LR
 
 Serverautoritativ bedeutet, dass die maßgebliche Instanz Befehle mittels Shared validiert und auswertet. Es widerspricht nicht der Vorgabe, dass das Server-Modul keine eigene Spielelogik enthält. Lokales Spiel, KI und Online-Spiel sollen denselben fachlichen Ablauf nutzen.
 
-## Objektmodell durch Zusammensetzung
+## Objektmodell als Entity-Component-System
 
-Eine Objektdefinition kombiniert Eigenschaften und Parameter. Eine Instanz verweist auf ihre Definition und trägt veränderlichen Zustand. Fähigkeiten werden aus Eigenschaften ermittelt, nicht aus Namen wie „Infanterie“ oder „Panzer“.
+Der fachliche Kern verwendet ein Entity-Component-System (ECS). Ein unveränderliches Prefab ersetzt die Objektdefinition: Es kombiniert Komponenten-Templates mit den Parametern eines Einheitentyps, eines Gebäudes oder eines Terrainfelds. Eine Entität ist die konkrete Instanz in der ECS-Welt einer Partie und trägt nur veränderliche Laufzeitkomponenten. Fähigkeiten ergeben sich aus der Komponentenmenge, nicht aus Namen wie „Infanterie“ oder „Panzer“.
 
 ```mermaid
-classDiagram
-    Objektdefinition "1" *-- "0..*" Eigenschaftskonfiguration
-    Eigenschaftskonfiguration --> Eigenschaftstyp
-    Spielobjektinstanz --> Objektdefinition
-    Spielobjektinstanz *-- Instanzzustand
-    Plugin --> Eigenschaftstyp: liefert
-    Eigenschaftstyp --> Verhalten
-    Eigenschaftstyp --> Editorbeschreibung
-    Szenario --> Objektdefinition
-    Szenario --> Regelsatz
-    Spielstand --> Szenario: Grundlage
-    Spielstand --> Spielobjektinstanz
+flowchart LR
+    Szenario --> PrefabKatalog
+    PrefabKatalog --> Prefab
+    Prefab --> KomponentenTemplate
+    Startaufstellung --> Entitätsvorlage
+    Entitätsvorlage --> Prefab
+    Partie --> ECSWelt
+    ECSWelt --> Entität
+    Entität --> Prefab
+    Entität --> Laufzeitkomponente
+    TurnZustandsmaschine --> Fachsystem
+    Fachsystem --> ECSWelt
 ```
 
-Beispiel: Standardinfanterie kombiniert Bewegung, Angriff, Sicht und Eroberung. Eine benutzerdefinierte Panzereinheit kann ebenfalls Eroberung erhalten. Ein Stützpunkt kombiniert unter anderem Aufnahme von Einheiten und Reparatur. Die genaue Aufteilung ist noch kein verbindliches API-Schema.
+Ein Hexfeld, eine Einheit und ein Gebäude sind jeweils Entitäten; ihre Komponenten unterscheiden sie. Terrain, Höhe und Infrastruktur liegen an Hexfeldentitäten. Gebäude und Einheiten sind eigene Entitäten an einem Hexfeld. Beispielsweise kombiniert Standardinfanterie Komponenten für Bewegung, Angriff, Sicht und Eroberung; ein Stützpunkt Aufnahme- und Reparaturkomponenten. Der vollständige fachliche Entwurf samt Sichtprojektion steht im [Datenmodell](Datenmodell.md).
 
-Definitionen enthalten beispielsweise Bewegungsbudget, Sichtweite, Transportkapazität, erlaubte Eroberungsziele oder produzierbare Typen. Instanzzustände enthalten beispielsweise Position, Besitzer, Schaden und Produktionsfortschritt. Geländeobjekte fallen ebenfalls unter das Prinzip der Zusammensetzung.
+Definitionstemplates enthalten beispielsweise Bewegungsbudget, Sichtweite, Transportkapazität, erlaubte Eroberungsziele oder produzierbare Typen. Laufzeitkomponenten enthalten beispielsweise Position, Besitzer, Schaden und Produktionsfortschritt.
 
 ## Plugins und Editorintegration
 
-Plugins besitzen eindeutige Identifikationen und deklarieren Abhängigkeiten. Sie können Eigenschaftstypen samt Verhalten, Inhalte, Regelmechaniken und Visualisierungen bereitstellen. Konfiguration kombiniert vorhandenes Verhalten; neue Verhaltensarten werden programmiert. Skripte sind nicht vorgesehen.
+Plugins besitzen eindeutige Identifikationen und deklarieren Abhängigkeiten. Sie können Komponententypen, Komponenten-Templates, zugehörige Fachsysteme, Inhalte, Regelmechaniken und Visualisierungen bereitstellen. Konfiguration kombiniert vorhandenes Verhalten; neue Verhaltensarten werden programmiert. Skripte sind nicht vorgesehen.
 
 Fachlich erforderliche Verträge für die spätere Schnittstellendefinition:
 
-- Eigenschaftstypen stellen bearbeitbare Parameter und deren Validierung bereit.
-- Abhängigkeiten und unzulässige Eigenschaftskombinationen sind erkennbar.
-- Der Editor kann neue Plugin-Eigenschaften aufnehmen, bearbeiten, speichern und laden.
-- Laufzeit und Editor bewerten Konfigurationen nach denselben fachlichen Regeln.
-- Fehlende Plugins oder ungültige Definitionen führen zu verständlichen Diagnosen statt stillschweigend verändertem Spielverhalten.
+- Komponententypen stellen bearbeitbare Parameter und deren Validierung bereit.
+- Abhängigkeiten und unzulässige Komponentenkombinationen sind erkennbar.
+- Der Editor kann neue Plugin-Komponenten aufnehmen, bearbeiten, speichern und laden.
+- Laufzeit und Editor bewerten Prefab-Konfigurationen nach denselben fachlichen Regeln.
+- Fehlende Plugins oder ungültige Prefabs führen zu verständlichen Diagnosen statt stillschweigend verändertem Spielverhalten.
 
 Ob generische Editorbeschreibungen, spezielle Bedienelemente oder beide erforderlich sind, wird mit dem Plugin-Vertrag entschieden. Versionierung, Migrationen und Konfliktauflösung bleiben offen (O-08, O-09 in [Entscheidungen](Entscheidungen.md)).
 
-Die bisherigen Kategorien Combat-, Movement-, Economy-, Map-, Unit- und Visualization-Plugin sind mögliche Verantwortungsbereiche, keine festgeschriebene Vererbungshierarchie. TerrainService und EntityService bleiben Entwurfskandidaten; ihre Grenzen folgen dem Eigenschaftsmodell.
+Die bisherigen Kategorien Combat-, Movement-, Economy-, Map-, Unit- und Visualization-Plugin sind mögliche Verantwortungsbereiche, keine festgeschriebene Vererbungshierarchie. Die Grenzen der Fachsysteme folgen den Komponentenabfragen; konkrete System-APIs bleiben offen.
 
 ## Spielablauf und Spielersicht
 
